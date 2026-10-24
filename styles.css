@@ -17,12 +17,13 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* En-tête avec le titre et la boule de cristal */
+/* En-tête avec le titre, la boule de cristal et le texte explicatif parfaitement alignés au centre */
 .header-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
+  align-items: center; /* Aligne verticalement le titre, la boule et le texte au centre exact */
+  justify-content: flex-start; /* Tout est groupé proprement à gauche */
+  flex-wrap: wrap; 
+  gap: 25px; /* Espace harmonieux entre le titre et la boule/texte */
   border-bottom: 2px solid #eee;
   padding-bottom: 15px;
   margin-bottom: 20px;
@@ -34,29 +35,45 @@ body {
   color: #d97706;
 }
 
-/* Taille unique et correcte pour la boule de cristal à côté du titre */
+/* Conteneur regroupant la boule et le texte explicatif */
+.audio-control-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Taille et style de la boule de cristal cliquable */
 .header-icon {
-  height: 50px;
-  width: auto;
-  display: inline-block;
-  margin: 0;
-}
-
-/* Gestion responsive des textes et paragraphes */
-p {
-  line-height: 1.6;
-  margin-bottom: 15px;
-  font-size: 1rem;
-}
-
-/* Rendre les autres images du site responsive (sauf l'icône du header) */
-.main-container > img {
-  max-width: 100%;
+  width: 45px;
   height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  display: inline-block;
+  flex-shrink: 0;
 }
+
+.header-icon:hover {
+  transform: scale(1.1);
+}
+
+.header-icon.paused {
+  filter: grayscale(50%);
+}
+
+/* Style du texte explicatif entre crochets */
+.audio-instruction {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  cursor: pointer;
+  user-select: none;
+}
+
+.audio-instruction:hover {
+  color: #ff6600; /* Devient orange au survol */
+}
+
 /* Gestion responsive des textes et paragraphes */
 p {
   line-height: 1.6;
@@ -64,7 +81,17 @@ p {
   font-size: 1rem;
   text-align: justify; /* Justifie le texte pour un rendu plus propre et soigné */
 }
-/* Style discret pour le lecteur audio en bas de page */
+
+/* Rendre les autres images du site responsive */
+.main-container > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 6px;
+}
+
+/* Style discret pour le lecteur audio en bas de page (si besoin) */
 .footer-audio {
   text-align: center;
   margin-top: 30px;
@@ -75,10 +102,72 @@ p {
 .footer-audio audio {
   height: 32px;
   width: 250px;
-  opacity: 0.7; /* Légèrement transparent pour être discret */
+  opacity: 0.7;
   transition: opacity 0.3s ease;
 }
 
 .footer-audio audio:hover {
-  opacity: 1; /* Devient net si la souris passe dessus */
+  opacity: 1;
+}
+
+/* Conteneur Flexbox pour le GIF et son texte associé parfaitement alignés */
+.content-with-image {
+  display: flex;
+  align-items: center; /* Aligne le GIF et le texte rigoureusement au centre verticalement */
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; 
+}
+
+/* Style de l'image GIF */
+.content-with-image img.inline-gif {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.content-with-image p {
+  margin-top: 0;
+  margin-bottom: 0;
+  flex: 1; /* Permet au texte d'occuper l'espace restant */
+}
+
+/* Style pour la page d'accueil et le gros bouton */
+.welcome-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.welcome-container {
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px 0 30px 0;
+  color: #333;
+}
+
+.enter-btn {
+  display: inline-block;
+  background-color: #ff6600;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.enter-btn:hover {
+  background-color: #e55c00;
+  transform: scale(1.05);
 }
