@@ -64,3 +64,21 @@ p {
   font-size: 1rem;
   text-align: justify; /* Justifie le texte pour un rendu plus propre et soigné */
 }
+/* Style discret pour le lecteur audio en bas de page */
+.footer-audio {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.footer-audio audio {
+  height: 32px;
+  width: 250px;
+  opacity: 0.7; /* Légèrement transparent pour être discret */
+  transition: opacity 0.3s ease;
+}
+
+.footer-audio audio:hover {
+  opacity: 1; /* Devient net si la souris passe dessus */
+}
