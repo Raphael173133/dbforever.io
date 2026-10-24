@@ -1,27 +1,59 @@
-<style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-   img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 20px 0 0;
+/* Style global de la page pour une bonne lisibilité */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 15px;
 }
 
-    @media (min-width: 768px) {
-      body {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 30px;
-      }
+/* Conteneur principal pour limiter la largeur et centrer le contenu sur grand écran */
+.main-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
 
-      img {
-        max-width: 700px;
-      }
-    }
-  </style>
+/* En-tête avec le titre et la boule de cristal */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #d97706;
+}
+
+/* Taille unique et correcte pour la boule de cristal à côté du titre */
+.header-icon {
+  height: 50px;
+  width: auto;
+  display: inline-block;
+  margin: 0;
+}
+
+/* Gestion responsive des textes et paragraphes */
+p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Rendre les autres images du site responsive (sauf l'icône du header) */
+.main-container > img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 6px;
+}
