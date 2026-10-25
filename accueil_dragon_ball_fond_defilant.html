@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Ball Forever - Accueil</title>
+  <meta name="description" content="Ce site parle de l'univers de Dragon Ball, l'encyclopédie et l'histoire de Son Goku.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.welcome-body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0f051d;
+      background-image: url("wallpaper_gogeta_blue.webp");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    @media (max-width: 700px) {
+      body.welcome-body { background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body class="welcome-body">
+  <main class="main-container welcome-container">
+    <h1>DRAGON BALL FOREVER</h1>
+    <p class="welcome-text">!! BIENVENUE SUR LE SITE DRAGON BALL FOREVER !!</p>
+    <a href="storydb.html" class="enter-btn" onclick="playAudioAndEnter(event)">ENTRER</a>
+    <audio id="welcome-audio" src="dragonball_opening.mp3" preload="auto" loop></audio>
+  </main>
+
+  <script>
+    // Remplace ces noms par les noms exacts de tes six fichiers image.
+    const wallpapers = [
+      "wallpaper_gogeta_blue.webp",
+      "wallpaper_dragon_ball_z.webp",
+      "wallpaper_goku_transformations.webp",
+      "wallpaper_dragon_ball_super.webp",
+      "wallpaper_dragon_ball_gt.webp",
+      "wallpaper_dragon_ball_classic.webp"
+    ];
+
+    let currentWallpaper = 0;
+
+    // Précharge les images pour réduire le délai lors du changement.
+    wallpapers.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
+
+    function changeWallpaper() {
+      currentWallpaper = (currentWallpaper + 1) % wallpapers.length;
+      document.body.style.backgroundImage = `url("${wallpapers[currentWallpaper]}")`;
+    }
+
+    // Un changement toutes les 10 secondes.
+    window.setInterval(changeWallpaper, 10000);
+
+    function playAudioAndEnter(event) {
+      event.preventDefault();
+      const audio = document.getElementById('welcome-audio');
+      const targetUrl = event.currentTarget.href;
+
+      audio.play().then(() => {
+        try {
+          localStorage.setItem('db_music_playing', 'true');
+        } catch (error) {
+          // La navigation continue même si le stockage local est indisponible.
+        }
+        window.setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 300);
+      }).catch(() => {
+        window.location.href = targetUrl;
+      });
+    }
+  </script>
+</body>
+</html>

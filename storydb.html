@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Ball Forever - L'encyclopédie et l'histoire de Dragon Ball</title>
+  <meta name="description" content="Découvrez l'histoire originelle de Dragon Ball, les aventures de Son Goku, ses entraînements avec Tortue Géniale et ses combats contre l'armée du Ruban Rouge et le Roi Démon Piccolo.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #0f051d;
+      background-image: url("wallpaper5.webp");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* Fond semi-transparent pour fondre le bloc tout en gardant le texte noir bien lisible */
+    .main-container {
+      background: rgba(255, 255, 255, 0.75) !important;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+      color: #000000 !important;
+      border-radius: 12px;
+    }
+
+    /* Tous les paragraphes en noir bien net */
+    .main-container p {
+      color: #000000 !important;
+      text-shadow: none !important;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+<div class="main-container">
+      <div class="header-container">
+        <h1>DRAGON BALL : l’histoire</h1>
+        
+        <!-- Contrôle audio interactif avec la boule de cristal et le texte -->
+        <div class="audio-control-container">
+          <img src="boule1.jpg" alt="Boule de cristal" class="header-icon" id="crystal-ball" onclick="toggleAudio()" title="Cliquez pour lancer ou mettre en pause la musique">
+          <span class="audio-instruction" onclick="toggleAudio()">[cliquez sur la boule de cristal pour lancer/stopper la musique]</span>
+        </div>
+      </div>
+
+   <!-- Premier paragraphe seul -->
+   <p>Dans une forêt isolée, un petit garçon à la queue de singe, Son Goku, vit seul depuis la mort de son grand-père adoptif, Son Gohan. Doté d’une force surhumaine, il ignore presque tout du monde extérieur. Sa vie bascule le jour où il croise Bulma, une jeune inventrice partie à la recherche des sept Dragon Balls. Réunies, ces sphères magiques permettent d’invoquer le dragon Shenron, qui exauce un vœu. Goku décide de l’accompagner, et le duo se lance dans un périple plein d’humour et de rencontres : le cochon métamorphe Oolong, le bandit du désert Yamcha et son fidèle Puar.</p>
+
+   <!-- Bloc Flexbox pour garder le GIF parfaitement aligné avec le paragraphe suivant -->
+   <div class="content-with-image">
+      <img src="goku-flying-nimbus.gif" alt="Goku animation GIF" class="inline-gif">
+      <p>Au fil de leurs aventures, Goku fait la connaissance de Tortue Géniale, un vieux maître des arts martiaux aussi sage que farceur, qui devient son mentor. Aux côtés de son nouvel ami et rival Krillin, le garçon s’entraîne durement : livrer du lait, labourer, courir, porter une lourde carapace. Il participe ensuite au Tenkaichi Budokai, le grand tournoi d’arts martiaux. Il y progresse à toute vitesse, mais s’incline en finale face au mystérieux Jackie Chun.</p>
+   </div>
+
+   <p>Son parcours le met bientôt face à l’armée du Ruban Rouge, une organisation sans scrupules qui veut réunir les Dragon Balls pour dominer le monde. Goku affronte ses sbires un à un : le général Blue, la Tour Muscle, le robot Androïde 8, puis l’assassin Tao Pai Pai, qui le blesse gravement. Il s’entraîne alors auprès de Kami-sama, le gardien de la Terre, avant de revenir prendre sa revanche et de faire s’effondrer l’armée.</p>
+
+   <p>Les années passent, et Goku retrouve le Tenkaichi Budokai, où il croise de nouveaux adversaires, dont Tenshinhan et son compagnon Chaozu, anciens élèves de l’école rivale de la Grue. Mais une menace bien plus sombre se profile : le Roi Démon Piccolo, un être maléfique qui avait été scellé il y a des siècles et qui revient semer la terreur. Il élimine plusieurs compagnons de Goku et prend le contrôle du monde. Après un entraînement intense, Goku finit par l’affronter et le vaincre. Piccolo a toutefois eu le temps de donner naissance à un successeur, qui s’inscrit au tournoi suivant.</p>
+
+   <p>Devenu adulte, Goku retrouve ce nouvel adversaire lors d’un dernier Tenkaichi Budokai. Après un combat acharné, il l’emporte, puis épouse Chichi, rencontrée enfant. L’aventure se referme sur un héros qui n’a jamais cessé de progresser, animé par la joie du combat et l’envie de se dépasser.</p>
+
+   <p>Plus qu’une simple histoire de combats, Dragon Ball est un récit d’amitié et de découverte, inspiré du roman chinois <em>La Pérégrination vers l’Ouest</em>. Signée Akira Toriyama, cette saga mêle humour, aventure et arts martiaux, et reste l’une des œuvres les plus marquantes de l’histoire du manga.</p>
+
+   <!-- Bouton ACCUEIL centré tout en bas pointant vers accueil.html -->
+   <div class="footer-home-btn" style="text-align: center; margin-top: 30px; margin-bottom: 10px;">
+     <a href="accueil.html" class="enter-btn" style="font-size: 1.1rem; padding: 10px 30px;">ACCUEIL</a>
+   </div>
+     
+</div> <!-- Fermeture du .main-container -->
+
+<!-- Élément audio invisible en arrière-plan -->
+<audio id="global-audio" src="dragonball_opening.mp3" loop></audio>
+
+<script>
+  // Gestion du lecteur et de l'état visuel de la boule de cristal
+  function toggleAudio() {
+    const audio = document.getElementById('global-audio');
+    const ball = document.getElementById('crystal-ball');
+
+    if (audio.paused) {
+      audio.play().then(() => {
+        ball.classList.remove('paused');
+        localStorage.setItem('db_music_playing', 'true');
+      }).catch(error => {
+        console.log("Lecture bloquée par le navigateur :", error);
+      });
+    } else {
+      audio.pause();
+      ball.classList.add('paused');
+      localStorage.setItem('db_music_playing', 'false');
+    }
+  }
+
+  // Au chargement de la page, si la musique était active sur l'accueil, on la relance
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('global-audio');
+    const ball = document.getElementById('crystal-ball');
+
+    if (localStorage.getItem('db_music_playing') === 'true') {
+      audio.play().then(() => {
+        ball.classList.remove('paused');
+      }).catch(() => {
+        ball.classList.add('paused');
+      });
+    } else {
+      ball.classList.add('paused');
+    }
+  });
+</script>
+
+</body>
+</html>

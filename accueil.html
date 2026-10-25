@@ -3,80 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dragon Ball Forever - L'encyclopédie et l'histoire de Dragon Ball</title>
-  <meta name="description" content="Découvrez l'histoire originelle de Dragon Ball, les aventures de Son Goku, ses entraînements avec Tortue Géniale et ses combats contre l'armée du Ruban Rouge et le Roi Démon Piccolo.">
+  <meta name="description" content="Découvrez l'univers de Dragon Ball : les sagas, les personnages, les films et les jeux vidéo.">
+  <title>Dragon Ball Forever - Accueil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --red-light: #e62429;
+      --red-dark: #880000;
+      --green-light: #1b8a3e;
+      --green-dark: #0d4a1f;
+      --gold: #ffcc00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body.welcome-body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #260707 url("background_accueil_dbz.jpg") center / cover no-repeat fixed;
+      font-family: "Rajdhani", sans-serif;
+    }
+
+    .db-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: max-content;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    /* Conteneur pour aligner le titre ACCUEIL et la note de musique côte à côte */
+    .db-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 280px;
+      max-width: 100%;
+      transform: translateX(-30px);
+    }
+
+    .db-accueil-title {
+      margin: 0;
+      padding: 4px 0 8px;
+      color: var(--gold);
+      font-family: "Bangers", cursive, sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      text-align: center;
+      text-shadow: 3px 3px 0 #990000, 0 0 10px rgb(0 0 0 / 80%);
+      user-select: none;
+    }
+
+    /* Bouton note de musique (croche) */
+    .home-audio-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 6px rgb(0 0 0 / 40%);
+      transition: transform 0.2s ease, filter 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .home-audio-btn:hover {
+      transform: scale(1.1);
+      filter: brightness(1.15);
+    }
+
+    .db-sagas-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .db-menu-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .db-main-btn {
+      display: flex;
+      flex: 0 0 280px;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 60px;
+      padding: 6px 12px;
+      overflow: hidden;
+      border: 2px solid rgb(255 255 255 / 30%);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+      box-shadow: 0 4px 10px rgb(0 0 0 / 40%);
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      user-select: none;
+    }
+
+    .db-main-btn:hover {
+      transform: scale(1.01);
+      filter: brightness(1.12);
+    }
+
+    .db-main-btn:focus-visible,
+    .db-sub-btn:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .db-main-btn img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 80%));
+    }
+
+    .db-main-btn img.logo-super {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      mix-blend-mode: normal;
+    }
+
+    .db-retro-btn {
+      border: 3px solid #00ffff;
+      background: linear-gradient(135deg, #0055ff, #002288);
+      box-shadow: 0 0 10px rgb(0 255 255 / 50%), inset 0 0 10px rgb(0 255 255 / 30%);
+    }
+
+    .db-retro-btn span {
+      color: #00ffff;
+      font-family: "Courier New", monospace;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px #000, 0 0 8px #00ffff;
+    }
+
+    .db-sub-menu {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      animation: fadeInRight 0.2s ease-in-out;
+    }
+
+    .db-sub-menu.active {
+      display: flex;
+    }
+
+    .db-sub-btn {
+      display: flex;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border: 2px solid rgb(255 255 255 / 20%);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+      white-space: nowrap;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .db-sub-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+      color: var(--gold);
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 600px) {
+      body.welcome-body {
+        align-items: flex-start;
+        background-attachment: scroll;
+      }
+
+      .db-container {
+        width: 100%;
+      }
+
+      .db-title-container {
+        transform: none;
+      }
+
+      .db-menu-group {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .db-main-btn {
+        flex-basis: 100%;
+        width: min(100%, 360px);
+        height: 60px;
+      }
+
+      .db-sub-menu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .db-sub-btn {
+        flex: 1 1 auto;
+      }
+
+      .db-accueil-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
-<body>
-<div class="main-container">
-      <div class="header-container">
-        <h1>DRAGON BALL : l’histoire</h1>
-        
-        <!-- Contrôle audio interactif avec la boule de cristal et le texte -->
-        <div class="audio-control-container">
-          <img src="boule1.jpg" alt="Boule de cristal" class="header-icon" id="crystal-ball" onclick="toggleAudio()" title="Cliquez pour lancer ou mettre en pause la musique">
-          <span class="audio-instruction" onclick="toggleAudio()">[cliquez sur la boule de cristal pour lancer/stopper la musique]</span>
-        </div>
+
+<body class="welcome-body" id="welcome-body">
+  <main class="db-container">
+    <div class="db-title-container">
+      <h1 class="db-accueil-title">ACCUEIL</h1>
+      <button type="button" class="home-audio-btn" onclick="toggleAudio()" title="Lancer ou stopper la musique">🎵</button>
+    </div>
+
+    <section class="db-sagas-group" aria-label="Les sagas Dragon Ball">
+      <!-- Dragon Ball : Ouvre storydb.html au clic sur le logo -->
+      <div class="db-menu-group">
+        <a href="storydb.html" class="db-main-btn" aria-label="Dragon Ball" style="text-decoration: none;" onclick="playAudioAndEnter(event)">
+          <img src="db_logo.png" alt="Dragon Ball">
+        </a>
+        <nav id="sub-db" class="db-sub-menu" aria-label="Dragon Ball">
+          <a href="storydb.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
+          <a href="films-db.html" class="db-sub-btn">FILMS</a>
+          <a href="persos-db.html" class="db-sub-btn">PERSOS</a>
+        </nav>
       </div>
 
-   <!-- Bloc Flexbox pour garder le GIF parfaitement aligné et habillé par le texte -->
-  
-      <p>Dans une forêt isolée, un petit garçon à la queue de singe, Son Goku, vit seul depuis la mort de son grand-père adoptif, Son Gohan. Doté d’une force surhumaine, il ignore presque tout du monde extérieur. Sa vie bascule le jour où il croise Bulma, une jeune inventrice partie à la recherche des sept Dragon Balls. Réunies, ces sphères magiques permettent d’invoquer le dragon Shenron, qui exauce un vœu. Goku décide de l’accompagner, et le duo se lance dans un périple plein d’humour et de rencontres : le cochon métamorphe Oolong, le bandit du désert Yamcha et son fidèle Puar.</p>
+      <!-- Dragon Ball Z : Ouvre storydbz.html au clic sur le logo -->
+      <div class="db-menu-group">
+        <a href="storydbz.html" class="db-main-btn" aria-label="Dragon Ball Z" style="text-decoration: none;" onclick="playAudioAndEnter(event)">
+          <img src="dbz-logo.png" alt="Dragon Ball Z">
+        </a>
+        <nav id="sub-dbz" class="db-sub-menu" aria-label="Dragon Ball Z">
+          <a href="storydbz.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
+          <a href="films-dbz.html" class="db-sub-btn">FILMS</a>
+          <a href="persos-dbz.html" class="db-sub-btn">PERSOS</a>
+        </nav>
+      </div>
 
-    <div class="content-with-image">
-      <img src="goku-flying-nimbus.gif" alt="Goku animation GIF" class="inline-gif">
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbgt" onclick="toggleMenu('sub-dbgt', event)">
+          <img src="dbgt_logo.png" alt="Dragon Ball GT">
+        </button>
+        <nav id="sub-dbgt" class="db-sub-menu" aria-label="Dragon Ball GT">
+          <a href="dbgtstory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="films-dbgt.html" class="db-sub-btn">FILMS</a>
+          <a href="persos-dbgt.html" class="db-sub-btn">PERSOS</a>
+        </nav>
+      </div>
 
-   <p>Au fil de leurs aventures, Goku fait la connaissance de Tortue Géniale, un vieux maître des arts martiaux aussi sage que farceur, qui devient son mentor. Aux côtés de son nouvel ami et rival Krillin, le garçon s’entraîne durement : livrer du lait, labourer, courir, porter une lourde carapace. Il participe ensuite au Tenkaichi Budokai, le grand tournoi d’arts martiaux. Il y progresse à toute vitesse, mais s’incline en finale face au mystérieux Jackie Chun.</p>
-   </div>
-   <p>Son parcours le met bientôt face à l’armée du Ruban Rouge, une organisation sans scrupules qui veut réunir les Dragon Balls pour dominer le monde. Goku affronte ses sbires un à un : le général Blue, la Tour Muscle, le robot Androïde 8, puis l’assassin Tao Pai Pai, qui le blesse gravement. Il s’entraîne alors auprès de Kami-sama, le gardien de la Terre, avant de revenir prendre sa revanche et de faire s’effondrer l’armée.</p>
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbs" onclick="toggleMenu('sub-dbs', event)">
+          <img src="dbsuper_logo.png" alt="Dragon Ball Super" class="logo-super">
+        </button>
+        <nav id="sub-dbs" class="db-sub-menu" aria-label="Dragon Ball Super">
+          <a href="dbsstory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="films-dbs.html" class="db-sub-btn">FILMS</a>
+          <a href="persos-dbs.html" class="db-sub-btn">PERSOS</a>
+        </nav>
+      </div>
 
-   <p>Les années passent, et Goku retrouve le Tenkaichi Budokai, où il croise de nouveaux adversaires, dont Tenshinhan et son compagnon Chaozu, anciens élèves de l’école rivale de la Grue. Mais une menace bien plus sombre se profile : le Roi Démon Piccolo, un être maléfique qui avait été scellé il y a des siècles et qui revient semer la terreur. Il élimine plusieurs compagnons de Goku et prend le contrôle du monde. Après un entraînement intense, Goku finit par l’affronter et le vaincre. Piccolo a toutefois eu le temps de donner naissance à un successeur, qui s’inscrit au tournoi suivant.</p>
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbdaima" onclick="toggleMenu('sub-dbdaima', event)">
+          <img src="dbdaima_logo.png" alt="Dragon Ball Daima">
+        </button>
+        <nav id="sub-dbdaima" class="db-sub-menu" aria-label="Dragon Ball Daima">
+          <a href="dbdaimastory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="films-dbdaima.html" class="db-sub-btn">FILMS</a>
+          <a href="persos-dbdaima.html" class="db-sub-btn">PERSOS</a>
+        </nav>
+      </div>
+    </section>
 
-   <p>Devenu adulte, Goku retrouve ce nouvel adversaire lors d’un dernier Tenkaichi Budokai. Après un combat acharné, il l’emporte, puis épouse Chichi, rencontrée enfant. L’aventure se referme sur un héros qui n’a jamais cessé de progresser, animé par la joie du combat et l’envie de se dépasser.</p>
+    <div class="db-menu-group">
+      <button class="db-main-btn db-retro-btn" type="button" aria-expanded="false" aria-controls="sub-jv" onclick="toggleMenu('sub-jv', event)">
+        <span>JEUX-VIDÉOS</span>
+      </button>
+      <nav id="sub-jv" class="db-sub-menu" aria-label="Jeux vidéo">
+        <a href="console.html" class="db-sub-btn">CONSOLE</a>
+        <a href="mobile.html" class="db-sub-btn">MOBILE</a>
+      </nav>
+    </div>
+  </main>
 
-   <p>Plus qu’une simple histoire de combats, Dragon Ball est un récit d’amitié et de découverte, inspiré du roman chinois <em>La Pérégrination vers l’Ouest</em>. Signée Akira Toriyama, cette saga mêle humour, aventure et arts martiaux, et reste l’une des œuvres les plus marquantes de l’histoire du manga.</p>
-     
-</div> <!-- Fermeture du .main-container -->
+  <audio id="welcome-audio" src="dragonballsuper_accueil.mp3" preload="auto" loop></audio>
 
-<!-- Élément audio invisible en arrière-plan -->
-<audio id="global-audio" src="dragonball_opening.mp3" loop></audio>
+  <script>
+    function toggleMenu(menuId, event) {
+      event.stopPropagation();
 
-<script>
-  // Gestion du lecteur et de l'état visuel de la boule de cristal
-  function toggleAudio() {
-    const audio = document.getElementById('global-audio');
-    const ball = document.getElementById('crystal-ball');
+      const targetMenu = document.getElementById(menuId);
+      const button = event.currentTarget;
+      const wasOpen = targetMenu.classList.contains("active");
 
-    if (audio.paused) {
-      audio.play().then(() => {
-        ball.classList.remove('paused');
-        localStorage.setItem('db_music_playing', 'true');
-      }).catch(error => {
-        console.log("Lecture bloquée par le navigateur :", error);
+      document.querySelectorAll(".db-sub-menu").forEach((menu) => {
+        menu.classList.remove("active");
       });
-    } else {
-      audio.pause();
-      ball.classList.add('paused');
-      localStorage.setItem('db_music_playing', 'false');
-    }
-  }
 
-  // Au chargement de la page, si la musique était active sur l'accueil, on la relance
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('global-audio');
-    const ball = document.getElementById('crystal-ball');
-
-    if (localStorage.getItem('db_music_playing') === 'true') {
-      audio.play().then(() => {
-        ball.classList.remove('paused');
-      }).catch(() => {
-        ball.classList.add('paused');
+      document.querySelectorAll(".db-main-btn[aria-expanded]").forEach((item) => {
+        item.setAttribute("aria-expanded", "false");
       });
-    } else {
-      ball.classList.add('paused');
-    }
-  });
-</script>
 
+      if (!wasOpen) {
+        targetMenu.classList.add("active");
+        button.setAttribute("aria-expanded", "true");
+      }
+    }
+
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".db-sub-menu").forEach((menu) => {
+        menu.classList.remove("active");
+      });
+
+      document.querySelectorAll(".db-main-btn[aria-expanded]").forEach((item) => {
+        item.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Fonction pour lancer ou mettre en pause la musique directement depuis la note
+    function toggleAudio() {
+      const audio = document.getElementById("welcome-audio");
+      if (audio.paused) {
+        audio.currentTime = 0;
+        audio.play().then(() => {
+          try {
+            localStorage.setItem("db_music_playing", "true");
+          } catch (error) {}
+        }).catch(error => {
+          console.log("Lecture audio bloquée par le navigateur :", error);
+        });
+      } else {
+        audio.pause();
+        try {
+          localStorage.setItem("db_music_playing", "false");
+        } catch (error) {}
+      }
+    }
+
+    function playAudioAndEnter(event) {
+      const link = event.currentTarget;
+      const targetUrl = link.getAttribute("href");
+
+      if (!targetUrl || targetUrl === "#") return;
+
+      event.preventDefault();
+      const audio = document.getElementById("welcome-audio");
+
+      audio.play()
+        .then(() => {
+          try {
+            localStorage.setItem("db_music_playing", "true");
+          } catch (error) {}
+          window.setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 300);
+        })
+        .catch(() => {
+          window.location.href = targetUrl;
+        });
+    }
+  </script>
 </body>
 </html>

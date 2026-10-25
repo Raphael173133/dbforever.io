@@ -4,40 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dragon Ball Forever - Accueil</title>
-  <meta name="description" content="Ce site parle de l'univers de Dragon Ball, Dragon Ball Z, Dragon Ball Super, Dragon Ball GT, Dragon Ball Daima, les séries TV et les films, les personnages, les attaques spéciales, un forum de discussion, les jeux-vidéos (consoles et mobiles) et toute sorte de goodies">
+  <meta name="description" content="Ce site parle de l'univers de Dragon Ball, l'encyclopédie et l'histoire de Son Goku.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body.welcome-body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 40px;
+      background: #0f051d url("wallpaper_gogeta_blue.webp") center / cover no-repeat fixed;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    .main-container.welcome-container {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .main-container.welcome-container h1 {
+      font-family: 'Changa One', cursive, sans-serif;
+      font-size: 3.2rem;
+      color: #ffffff;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 150, 255, 0.6);
+      letter-spacing: 2px;
+      margin: 0 0 10px 0;
+      line-height: 1.2;
+    }
+
+    .welcome-text {
+      color: #ffffff;
+      font-size: 1.2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body class="welcome-body">
 
 <div class="main-container welcome-container">
       <h1>DRAGON BALL FOREVER</h1>
     
-      <p class="welcome-text">!! BIENVENUE SUR LE SITE DRAGON BALL FOREVER !!</p>
+      <p class="welcome-text">!! BIENVENUE SUR LE SITE DRAGON BALL FOREVER - 楽しんで !!</p>
 
-      <!-- Bouton Entrer -->
-      <a href="accueil.html" class="enter-btn" onclick="playAudioAndEnter(event)">ENTRER</a>
-
-      <!-- Élément audio masqué -->
-      <audio id="welcome-audio" src="dragonball_opening.mp3" preload="auto" loop></audio>
+      <!-- Bouton Entrer simple qui mène directement vers accueil.html -->
+      <a href="accueil.html" class="enter-btn">ENTRER</a>
 </div>
-
-<script>
-  function playAudioAndEnter(event) {
-    event.preventDefault(); 
-    const audio = document.getElementById('welcome-audio');
-    
-    audio.play().then(() => {
-      // On sauvegarde l'état de lecture dans la mémoire du navigateur
-      localStorage.setItem('db_music_playing', 'true');
-      
-      setTimeout(() => {
-        window.location.href = "accueil.html"; // Redirection vers la page encyclopédie
-      }, 300); 
-    }).catch(() => {
-      window.location.href = "accueil.html"; // Redirection en cas de blocage audio
-    });
-  }
-</script>
 
 </body>
 </html>

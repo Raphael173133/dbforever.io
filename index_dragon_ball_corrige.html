@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez l'univers de Dragon Ball : les sagas, les personnages, les films et les jeux vidéo.">
+  <title>Dragon Ball Forever - Accueil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --red-light: #e62429;
+      --red-dark: #880000;
+      --green-light: #1b8a3e;
+      --green-dark: #0d4a1f;
+      --gold: #ffcc00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body.welcome-body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #260707 url("background_accueil_dbz.jpg") center / cover no-repeat fixed;
+      font-family: "Rajdhani", sans-serif;
+    }
+
+    .db-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: max-content;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .db-accueil-title {
+      width: 280px;
+      max-width: 100%;
+      padding: 4px 0 8px;
+      color: var(--gold);
+      font-family: "Bangers", cursive, sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      text-align: center;
+      text-shadow: 3px 3px 0 #990000, 0 0 10px rgb(0 0 0 / 80%);
+      user-select: none;
+    }
+
+    .db-sagas-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .db-menu-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .db-main-btn {
+      display: flex;
+      flex: 0 0 280px;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 78px;
+      padding: 8px 14px;
+      overflow: hidden;
+      border: 2px solid rgb(255 255 255 / 30%);
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+      box-shadow: 0 4px 10px rgb(0 0 0 / 40%);
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      user-select: none;
+    }
+
+    .db-main-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.12);
+    }
+
+    .db-main-btn:focus-visible,
+    .db-sub-btn:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .db-main-btn img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 80%));
+    }
+
+    /*
+      Le logo Super ne reçoit aucun fond blanc ni padding spécial.
+      Pour une transparence correcte, dbsuper_logo.png doit être un PNG
+      dont le fond est réellement transparent.
+    */
+    .db-main-btn img.logo-super {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      mix-blend-mode: normal;
+    }
+
+    .db-retro-btn {
+      border: 3px solid #00ffff;
+      background: linear-gradient(135deg, #0055ff, #002288);
+      box-shadow: 0 0 10px rgb(0 255 255 / 50%), inset 0 0 10px rgb(0 255 255 / 30%);
+    }
+
+    .db-retro-btn span {
+      color: #00ffff;
+      font-family: "Courier New", monospace;
+      font-size: 1.25rem;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px #000, 0 0 8px #00ffff;
+    }
+
+    .db-sub-menu {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      animation: fadeInRight 0.2s ease-in-out;
+    }
+
+    .db-sub-menu.active {
+      display: flex;
+    }
+
+    .db-sub-btn {
+      display: flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border: 2px solid rgb(255 255 255 / 20%);
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--green-light), var(--green-dark));
+      box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+      white-space: nowrap;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .db-sub-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+      color: var(--gold);
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 600px) {
+      body.welcome-body {
+        align-items: flex-start;
+        background-attachment: scroll;
+      }
+
+      .db-container {
+        width: 100%;
+      }
+
+      .db-menu-group {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .db-main-btn {
+        flex-basis: 100%;
+        width: min(100%, 360px);
+        height: 72px;
+      }
+
+      .db-sub-menu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .db-sub-btn {
+        flex: 1 1 auto;
+      }
+
+      .db-accueil-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="welcome-body">
+  <main class="db-container">
+    <h1 class="db-accueil-title">Accueil</h1>
+
+    <section class="db-sagas-group" aria-label="Les sagas Dragon Ball">
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-db" onclick="toggleMenu('sub-db', this)">
+          <img src="db_logo.png" alt="Dragon Ball">
+        </button>
+        <nav id="sub-db" class="db-sub-menu" aria-label="Dragon Ball">
+          <a href="storydb.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">Série TV</a>
+          <a href="films-db.html" class="db-sub-btn">Films</a>
+          <a href="persos-db.html" class="db-sub-btn">Personnages</a>
+        </nav>
+      </div>
+
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbz" onclick="toggleMenu('sub-dbz', this)">
+          <img src="dbz-logo.png" alt="Dragon Ball Z">
+        </button>
+        <nav id="sub-dbz" class="db-sub-menu" aria-label="Dragon Ball Z">
+          <a href="dbzstory.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">Série TV</a>
+          <a href="films-dbz.html" class="db-sub-btn">Films</a>
+          <a href="persos-dbz.html" class="db-sub-btn">Personnages</a>
+        </nav>
+      </div>
+
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbgt" onclick="toggleMenu('sub-dbgt', this)">
+          <img src="dbgt_logo.png" alt="Dragon Ball GT">
+        </button>
+        <nav id="sub-dbgt" class="db-sub-menu" aria-label="Dragon Ball GT">
+          <a href="dbgtstory.html" class="db-sub-btn">Série TV</a>
+          <a href="films-dbgt.html" class="db-sub-btn">Films</a>
+          <a href="persos-dbgt.html" class="db-sub-btn">Personnages</a>
+        </nav>
+      </div>
+
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbs" onclick="toggleMenu('sub-dbs', this)">
+          <img src="dbsuper_logo.png" alt="Dragon Ball Super" class="logo-super">
+        </button>
+        <nav id="sub-dbs" class="db-sub-menu" aria-label="Dragon Ball Super">
+          <a href="dbsstory.html" class="db-sub-btn">Série TV</a>
+          <a href="films-dbs.html" class="db-sub-btn">Films</a>
+          <a href="persos-dbs.html" class="db-sub-btn">Personnages</a>
+        </nav>
+      </div>
+
+      <div class="db-menu-group">
+        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbdaima" onclick="toggleMenu('sub-dbdaima', this)">
+          <img src="dbdaima_logo.png" alt="Dragon Ball Daima">
+        </button>
+        <nav id="sub-dbdaima" class="db-sub-menu" aria-label="Dragon Ball Daima">
+          <a href="dbdaimastory.html" class="db-sub-btn">Série TV</a>
+          <a href="films-dbdaima.html" class="db-sub-btn">Films</a>
+          <a href="persos-dbdaima.html" class="db-sub-btn">Personnages</a>
+        </nav>
+      </div>
+    </section>
+
+    <div class="db-menu-group">
+      <button class="db-main-btn db-retro-btn" type="button" aria-expanded="false" aria-controls="sub-jv" onclick="toggleMenu('sub-jv', this)">
+        <span>Jeux vidéo</span>
+      </button>
+      <nav id="sub-jv" class="db-sub-menu" aria-label="Jeux vidéo">
+        <a href="console.html" class="db-sub-btn">Console</a>
+        <a href="mobile.html" class="db-sub-btn">Mobile</a>
+      </nav>
+    </div>
+  </main>
+
+  <audio id="welcome-audio" src="dragonball_opening.mp3" preload="auto" loop></audio>
+
+  <script>
+    function toggleMenu(menuId, button) {
+      const targetMenu = document.getElementById(menuId);
+      const wasOpen = targetMenu.classList.contains("active");
+
+      document.querySelectorAll(".db-sub-menu").forEach((menu) => {
+        menu.classList.remove("active");
+      });
+
+      document.querySelectorAll(".db-main-btn[aria-expanded]").forEach((item) => {
+        item.setAttribute("aria-expanded", "false");
+      });
+
+      if (!wasOpen) {
+        targetMenu.classList.add("active");
+        button.setAttribute("aria-expanded", "true");
+      }
+    }
+
+    function playAudioAndEnter(event) {
+      const link = event.currentTarget;
+      const targetUrl = link.getAttribute("href");
+
+      if (!targetUrl || targetUrl === "#") return;
+
+      event.preventDefault();
+      const audio = document.getElementById("welcome-audio");
+
+      audio.play()
+        .then(() => {
+          try {
+            localStorage.setItem("db_music_playing", "true");
+          } catch (error) {
+            // La navigation continue même si le stockage local est indisponible.
+          }
+          window.setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 300);
+        })
+        .catch(() => {
+          window.location.href = targetUrl;
+        });
+    }
+  </script>
+</body>
+</html>
