@@ -38,22 +38,20 @@
     .db-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       width: max-content;
       max-width: 100%;
       margin: auto;
     }
 
-    /* Conteneur pour aligner le titre ACCUEIL et la note de musique côte à côte */
+    /* Conteneur étiré à la largeur exacte des boutons (280px), séparant le titre à gauche et la note à droite */
     .db-title-container {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      justify-content: space-between;
       width: 280px;
       max-width: 100%;
-      transform: translateX(-30px);
     }
 
     .db-accueil-title {
@@ -63,12 +61,12 @@
       font-family: "Bangers", cursive, sans-serif;
       font-size: 2.8rem;
       letter-spacing: 3px;
-      text-align: center;
+      text-align: left;
       text-shadow: 3px 3px 0 #990000, 0 0 10px rgb(0 0 0 / 80%);
       user-select: none;
     }
 
-    /* Bouton note de musique (croche) */
+    /* Bouton note de musique (croche) collé à droite */
     .home-audio-btn {
       display: inline-flex;
       align-items: center;
@@ -213,10 +211,11 @@
 
       .db-container {
         width: 100%;
+        align-items: center;
       }
 
       .db-title-container {
-        transform: none;
+        justify-content: space-between;
       }
 
       .db-menu-group {

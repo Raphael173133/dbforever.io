@@ -14,6 +14,68 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      margin: 0;
+      padding: 20px 10px;
+    }
+
+    /* Style du conteneur semi-transparent avec adaptation mobile */
+    .main-container {
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+      color: #000000 !important;
+      border-radius: 12px;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Paragraphes bien lisibles */
+    .main-container p {
+      color: #000000 !important;
+      text-shadow: none !important;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Optimisation responsive pour mobile */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px 5px;
+        background-attachment: scroll; /* Évite les bugs de fond fixe sur certains mobiles */
+      }
+
+      .main-container {
+        padding: 12px;
+        border-radius: 8px;
+        width: 100%;
+      }
+
+      .header-container h1 {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+
+      /* Passage en colonne sur mobile pour que le GIF ne coince pas le texte */
+      .content-with-image {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px;
+      }
+
+      .inline-gif {
+        max-width: 100% !important;
+        height: auto;
+        margin: 0 auto 10px auto !important;
+        display: block;
+      }
+
+      .audio-control-container {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -33,9 +95,9 @@
    <p>Cinq ans après son mariage, Son Goku mène une vie paisible avec Chichi et leur fils Gohan. Cette tranquillité vole en éclats avec l’arrivée de Raditz, un guerrier venu de l’espace qui se révèle être son frère. Goku apprend qu’il est un Saiyan, une race de conquérants, envoyé enfant sur Terre sous le nom de Kakarotto. Raditz enlève Gohan, et Goku s’allie à son ancien ennemi Piccolo pour le vaincre, mais il y laisse la vie. Il s’entraîne dans l’au-delà auprès de Kaïo, tandis que Piccolo prépare le petit Gohan au combat.</p>
 
    <!-- Bloc Flexbox pour garder le GIF parfaitement aligné avec le paragraphe suivant -->
-   <div class="content-with-image">
-      <img src="goku_super_saiyan.gif" alt="Goku Super Saiyan animation GIF" class="inline-gif">
-      <p>Un an plus tard, deux autres Saiyans, Végéta et Nappa, débarquent pour s’emparer des Dragon Balls. Les Guerriers Z se sacrifient les uns après les autres. Ressuscité à temps, Goku affronte Végéta lors d’un duel d’une rare intensité, qui le force à fuir. Végéta se tourne alors vers la planète Namek, où se trouvent d’autres Dragon Balls. Goku, Krillin, Gohan et Bulma s’y rendent aussi, et tous se retrouvent face à Freezer, l’empereur de l’univers, tyran cruel à la puissance terrifiante. Après la mort de Krillin, la colère de Goku explose : il se transforme en Super Saiyan, la légende des guerriers dorés, et met fin à Freezer.</p>
+   <div class="content-with-image" style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+      <img src="goku_super_saiyan.gif" alt="Goku Super Saiyan animation GIF" class="inline-gif" style="max-width: 150px; flex-shrink: 0;">
+      <p style="margin: 0;">Un an plus tard, deux autres Saiyans, Végéta et Nappa, débarquent pour s’emparer des Dragon Balls. Les Guerriers Z se sacrifient les uns après les autres. Ressuscité à temps, Goku affronte Végéta lors d’un duel d’une rare intensité, qui le force à fuir. Végéta se tourne alors vers la planète Namek, où se trouvent d’autres Dragon Balls. Goku, Krillin, Gohan et Bulma s’y rendent aussi, et tous se retrouvent face à Freezer, l’empereur de l’univers, tyran cruel à la puissance terrifiante. Après la mort de Krillin, la colère de Goku explose : il se transforme en Super Saiyan, la légende des guerriers dorés, et met fin à Freezer.</p>
    </div>
 
    <p>Trois ans plus tard, Trunks, un jeune homme venu du futur, prévient Goku que des Cyborgs détruiront le monde. Il lui apporte aussi un remède contre une maladie du cœur qui le menaçait. L’ennemi se révèle plus complexe que prévu : en plus des Cyborgs du Dr Gero, Cell, une créature artificielle qui absorbe ses adversaires pour se perfectionner, devient le véritable danger. Il organise les Cell Games, un grand tournoi mondial. Goku cède sa place à son fils, et Gohan, poussé à bout, atteint le stade de Super Saiyan 2 et terrasse Cell, mais Goku y perd la vie.</p>
@@ -46,7 +108,7 @@
 
    <!-- Bouton ACCUEIL centré tout en bas pointant vers accueil.html -->
    <div class="footer-home-btn" style="text-align: center; margin-top: 30px; margin-bottom: 10px;">
-     <a href="accueil.html" class="enter-btn" style="font-size: 1.1rem; padding: 10px 30px;">ACCUEIL</a>
+     <a href="accueil.html" class="enter-btn" style="font-size: 1.1rem; padding: 10px 30px; display: inline-block;">ACCUEIL</a>
    </div>
      
 </div> <!-- Fermeture du .main-container -->
@@ -62,14 +124,14 @@
 
     if (audio.paused) {
       audio.play().then(() => {
-        ball.classList.remove('paused');
+        if(ball) ball.classList.remove('paused');
         localStorage.setItem('db_music_playing', 'true');
       }).catch(error => {
         console.log("Lecture bloquée par le navigateur :", error);
       });
     } else {
       audio.pause();
-      ball.classList.add('paused');
+      if(ball) ball.classList.add('paused');
       localStorage.setItem('db_music_playing', 'false');
     }
   }
@@ -81,12 +143,12 @@
 
     if (localStorage.getItem('db_music_playing') === 'true') {
       audio.play().then(() => {
-        ball.classList.remove('paused');
+        if(ball) ball.classList.remove('paused');
       }).catch(() => {
-        ball.classList.add('paused');
+        if(ball) ball.classList.add('paused');
       });
     } else {
-      ball.classList.add('paused');
+      if(ball) ball.classList.add('paused');
     }
   });
 </script>
