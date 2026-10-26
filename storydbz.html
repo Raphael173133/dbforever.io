@@ -1,157 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dragon Ball Forever - L'encyclopédie et l'histoire de Dragon Ball Z</title>
-  <meta name="description" content="Découvrez l'histoire de Dragon Ball Z, les combats épiques de Son Goku et des Guerriers Z contre Raditz, Freezer, Cell et Majin Boo.">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      background-color: #0f051d;
-      background-image: url("wallpaper0.webp");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 20px 10px;
-    }
-
-    /* Style du conteneur semi-transparent avec adaptation mobile */
-    .main-container {
-      background: rgba(255, 255, 255, 0.85) !important;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.5) !important;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-      color: #000000 !important;
-      border-radius: 12px;
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* Paragraphes bien lisibles */
-    .main-container p {
-      color: #000000 !important;
-      text-shadow: none !important;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    /* Optimisation responsive pour mobile */
-    @media (max-width: 768px) {
-      body {
-        padding: 10px 5px;
-        background-attachment: scroll; /* Évite les bugs de fond fixe sur certains mobiles */
-      }
-
-      .main-container {
-        padding: 12px;
-        border-radius: 8px;
-        width: 100%;
-      }
-
-      .header-container h1 {
-        font-size: 1.6rem;
-        text-align: center;
-      }
-
-      /* Passage en colonne sur mobile pour que le GIF ne coince pas le texte */
-      .content-with-image {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 10px;
-      }
-
-      .inline-gif {
-        max-width: 100% !important;
-        height: auto;
-        margin: 0 auto 10px auto !important;
-        display: block;
-      }
-
-      .audio-control-container {
-        flex-direction: column;
-        gap: 5px;
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dragon Ball Forever - L'encyclopédie et l'histoire de Dragon Ball Z</title>
+<meta name="description" content="Découvrez l'histoire de Dragon Ball Z, les combats épiques de Son Goku et des Guerriers Z contre Raditz, Freezer, Cell et Majin Boo.">
+<link rel="stylesheet" href="styles.css">
+<style>
+*{box-sizing:border-box}
+body{min-height:100vh;margin:0;padding:clamp(10px,3vw,32px);background:#0f051d url("wallpaper0.webp") center/cover no-repeat fixed;font-family:'Rajdhani',sans-serif}
+.main-container{width:min(100%,900px);margin:0 auto;padding:clamp(16px,4vw,36px);background:rgba(255,255,255,.86)!important;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,.5)!important;box-shadow:0 8px 32px rgba(0,0,0,.3)!important;color:#000!important;border-radius:12px;overflow-wrap:break-word}
+.header-container{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;margin-bottom:24px}
+.header-container h1{max-width:100%;margin:0;font-size:clamp(1.6rem,5vw,3rem);line-height:1.15;overflow-wrap:anywhere}
+.audio-control-container{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;width:100%}
+.crystal-ball-button{display:inline-flex;align-items:center;justify-content:center;width:clamp(64px,15vw,100px);height:clamp(64px,15vw,100px);flex:0 0 auto;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.header-icon{display:block;width:100%;height:100%;object-fit:contain;border:0;border-radius:50%;background:transparent;box-shadow:none;transition:transform .2s,filter .2s}
+.crystal-ball-button:hover .header-icon{transform:scale(1.06);filter:drop-shadow(0 0 8px rgba(255,190,40,.75))}
+.crystal-ball-button:focus-visible{outline:3px solid #c47700;outline-offset:4px}
+.audio-instruction{max-width:100%;font-size:clamp(.9rem,2.5vw,1.05rem);line-height:1.4;text-align:center;cursor:pointer}
+.main-container p{color:#000!important;text-shadow:none!important;font-size:clamp(1rem,2.2vw,1.12rem);line-height:1.7;font-weight:500;margin:0 0 1.2em}
+.content-with-image{display:flex;align-items:center;gap:clamp(14px,3vw,24px);margin:22px 0}
+.content-with-image p{flex:1 1 0;min-width:0;margin-bottom:0}
+.inline-gif{display:block;width:clamp(120px,22vw,180px);max-width:40%;height:auto;flex:0 1 auto;object-fit:contain;border-radius:10px}
+.footer-home-btn{text-align:center;margin:30px 0 10px}
+.footer-home-btn .enter-btn{display:inline-block;max-width:100%;padding:10px 30px;font-size:1.1rem;text-align:center}
+@media(max-width:650px){body{padding:10px;background-attachment:scroll}.main-container{padding:18px 15px;border-radius:10px}.content-with-image{flex-direction:column;align-items:center}.inline-gif{width:min(70%,220px);max-width:100%}.content-with-image p{width:100%}.audio-control-container{flex-direction:column;gap:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
 </head>
 <body>
-<div class="main-container">
-      <div class="header-container">
-        <h1>DRAGON BALL Z : l’histoire</h1>
-        
-        <!-- Contrôle audio interactif avec la boule de cristal et le texte -->
-        <div class="audio-control-container">
-          <img src="boule1.jpg" alt="Boule de cristal" class="header-icon" id="crystal-ball" onclick="toggleAudio()" title="Cliquez pour lancer ou mettre en pause la musique">
-          <span class="audio-instruction" onclick="toggleAudio()">[cliquez sur la boule de cristal pour lancer/stopper la musique]</span>
-        </div>
-      </div>
+<main class="main-container">
+<header class="header-container">
+<h1>DRAGON BALL Z : l’histoire</h1>
+<div class="audio-control-container">
+<button type="button" class="crystal-ball-button" id="crystal-ball-button" onclick="toggleAudio()" title="Lancer ou mettre en pause la musique" aria-label="Lancer ou mettre en pause la musique" aria-pressed="false">
+<img src="boule1.jpg" alt="" class="header-icon" id="crystal-ball">
+</button>
+<span class="audio-instruction" role="button" tabindex="0" onclick="toggleAudio()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleAudio()}">Cliquez sur la boule de cristal pour lancer ou arrêter la musique.</span>
+</div>
+</header>
 
-   <!-- Premier paragraphe seul -->
-   <p>Cinq ans après son mariage, Son Goku mène une vie paisible avec Chichi et leur fils Gohan. Cette tranquillité vole en éclats avec l’arrivée de Raditz, un guerrier venu de l’espace qui se révèle être son frère. Goku apprend qu’il est un Saiyan, une race de conquérants, envoyé enfant sur Terre sous le nom de Kakarotto. Raditz enlève Gohan, et Goku s’allie à son ancien ennemi Piccolo pour le vaincre, mais il y laisse la vie. Il s’entraîne dans l’au-delà auprès de Kaïo, tandis que Piccolo prépare le petit Gohan au combat.</p>
+<p>Cinq ans après son mariage, Son Goku mène une vie paisible avec Chichi et leur fils Gohan. Cette tranquillité vole en éclats avec l’arrivée de Raditz, un guerrier venu de l’espace qui se révèle être son frère. Goku apprend qu’il est un Saiyan, une race de conquérants, envoyé enfant sur Terre sous le nom de Kakarotto. Raditz enlève Gohan, et Goku s’allie à son ancien ennemi Piccolo pour le vaincre, mais il y laisse la vie. Il s’entraîne dans l’au-delà auprès de Kaïo, tandis que Piccolo prépare le petit Gohan au combat.</p>
 
-   <!-- Bloc Flexbox pour garder le GIF parfaitement aligné avec le paragraphe suivant -->
-   <div class="content-with-image" style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
-      <img src="goku_super_saiyan.gif" alt="Goku Super Saiyan animation GIF" class="inline-gif" style="max-width: 150px; flex-shrink: 0;">
-      <p style="margin: 0;">Un an plus tard, deux autres Saiyans, Végéta et Nappa, débarquent pour s’emparer des Dragon Balls. Les Guerriers Z se sacrifient les uns après les autres. Ressuscité à temps, Goku affronte Végéta lors d’un duel d’une rare intensité, qui le force à fuir. Végéta se tourne alors vers la planète Namek, où se trouvent d’autres Dragon Balls. Goku, Krillin, Gohan et Bulma s’y rendent aussi, et tous se retrouvent face à Freezer, l’empereur de l’univers, tyran cruel à la puissance terrifiante. Après la mort de Krillin, la colère de Goku explose : il se transforme en Super Saiyan, la légende des guerriers dorés, et met fin à Freezer.</p>
-   </div>
+<div class="content-with-image">
+<img src="goku_super_saiyan.gif" alt="Goku en Super Saiyan" class="inline-gif">
+<p>Un an plus tard, deux autres Saiyans, Végéta et Nappa, débarquent pour s’emparer des Dragon Balls. Les Guerriers Z se sacrifient les uns après les autres. Ressuscité à temps, Goku affronte Végéta lors d’un duel d’une rare intensité, qui le force à fuir. Végéta se tourne alors vers la planète Namek, où se trouvent d’autres Dragon Balls. Goku, Krillin, Gohan et Bulma s’y rendent aussi, et tous se retrouvent face à Freezer, l’empereur de l’univers, tyran cruel à la puissance terrifiante. Après la mort de Krillin, la colère de Goku explose : il se transforme en Super Saiyan, la légende des guerriers dorés, et met fin à Freezer.</p>
+</div>
 
-   <p>Trois ans plus tard, Trunks, un jeune homme venu du futur, prévient Goku que des Cyborgs détruiront le monde. Il lui apporte aussi un remède contre une maladie du cœur qui le menaçait. L’ennemi se révèle plus complexe que prévu : en plus des Cyborgs du Dr Gero, Cell, une créature artificielle qui absorbe ses adversaires pour se perfectionner, devient le véritable danger. Il organise les Cell Games, un grand tournoi mondial. Goku cède sa place à son fils, et Gohan, poussé à bout, atteint le stade de Super Saiyan 2 et terrasse Cell, mais Goku y perd la vie.</p>
+<p>Trois ans plus tard, Trunks, un jeune homme venu du futur, prévient Goku que des Cyborgs détruiront le monde. Il lui apporte aussi un remède contre une maladie du cœur qui le menaçait. L’ennemi se révèle plus complexe que prévu : en plus des Cyborgs du Dr Gero, Cell, une créature artificielle qui absorbe ses adversaires pour se perfectionner, devient le véritable danger. Il organise les Cell Games, un grand tournoi mondial. Goku cède sa place à son fils, et Gohan, poussé à bout, atteint le stade de Super Saiyan 2 et terrasse Cell, mais Goku y perd la vie.</p>
 
-   <p>Sept ans plus tard, Gohan est au lycée et mène une double vie de justicier, tandis que Goku revient le temps d’un tournoi. Un sorcier, Babidi, réveille alors Boo, un monstre rose d’une puissance colossale, et tente de faire revenir à la vie son ancien maître. Végéta, manipulé, redevient un temps le prince impitoyable d’autrefois, puis se sacrifie. Goku, Gohan, Végéta et les autres rivalisent d’ingéniosité pour contrer cette force destructrice : fusions, nouvelles transformations, entraînement dans la salle de l’Esprit et du Temps. Boo se divise, absorbe ses adversaires et cause un carnage. Finalement, Goku rassemble l’énergie de toute l’humanité pour l’ultime Genkidama et détruit Boo. Il se réincarne ensuite en un jeune garçon, Oob, qui s’entraînera pour devenir le futur champion de la Terre.</p>
+<p>Sept ans plus tard, Gohan est au lycée et mène une double vie de justicier, tandis que Goku revient le temps d’un tournoi. Un sorcier, Babidi, réveille alors Boo, un monstre rose d’une puissance colossale, et tente de faire revenir à la vie son ancien maître. Végéta, manipulé, redevient un temps le prince impitoyable d’autrefois, puis se sacrifie. Goku, Gohan, Végéta et les autres rivalisent d’ingéniosité pour contrer cette force destructrice : fusions, nouvelles transformations, entraînement dans la salle de l’Esprit et du Temps. Boo se divise, absorbe ses adversaires et cause un carnage. Finalement, Goku rassemble l’énergie de toute l’humanité pour l’ultime Genkidama et détruit Boo. Il se réincarne ensuite en un jeune garçon, Oob, qui s’entraînera pour devenir le futur champion de la Terre.</p>
 
-   <p>Plus sombre et plus épique que son prédécesseur, Dragon Ball Z est un récit de sacrifice, de dépassement de soi et de rédemption, qui a marqué des générations de lecteurs et de téléspectateurs.</p>
+<p>Plus sombre et plus épique que son prédécesseur, Dragon Ball Z est un récit de sacrifice, de dépassement de soi et de rédemption, qui a marqué des générations de lecteurs et de téléspectateurs.</p>
 
-   <!-- Bouton ACCUEIL centré tout en bas pointant vers accueil.html -->
-   <div class="footer-home-btn" style="text-align: center; margin-top: 30px; margin-bottom: 10px;">
-     <a href="accueil.html" class="enter-btn" style="font-size: 1.1rem; padding: 10px 30px; display: inline-block;">ACCUEIL</a>
-   </div>
-     
-</div> <!-- Fermeture du .main-container -->
+<footer class="footer-home-btn"><a href="accueil.html" class="enter-btn">ACCUEIL</a></footer>
+</main>
 
-<!-- Élément audio invisible en arrière-plan -->
-<audio id="global-audio" src="dragonballz_opening.mp3" loop></audio>
-
+<audio id="global-audio" src="dragonballz_opening.mp3" loop preload="auto"></audio>
 <script>
-  // Gestion du lecteur et de l'état visuel de la boule de cristal
-  function toggleAudio() {
-    const audio = document.getElementById('global-audio');
-    const ball = document.getElementById('crystal-ball');
-
-    if (audio.paused) {
-      audio.play().then(() => {
-        if(ball) ball.classList.remove('paused');
-        localStorage.setItem('db_music_playing', 'true');
-      }).catch(error => {
-        console.log("Lecture bloquée par le navigateur :", error);
-      });
-    } else {
-      audio.pause();
-      if(ball) ball.classList.add('paused');
-      localStorage.setItem('db_music_playing', 'false');
-    }
+function setAudioState(isPlaying){
+  const button=document.getElementById('crystal-ball-button');
+  button.setAttribute('aria-pressed',String(isPlaying));
+  button.setAttribute('aria-label',isPlaying?'Mettre la musique en pause':'Lancer la musique');
+}
+function toggleAudio(){
+  const audio=document.getElementById('global-audio');
+  if(audio.paused){
+    audio.play().then(()=>{
+      setAudioState(true);
+      try{localStorage.setItem('db_music_playing','true')}catch(error){}
+    }).catch(error=>console.log('Lecture audio bloquée par le navigateur :',error));
+  }else{
+    audio.pause();setAudioState(false);
+    try{localStorage.setItem('db_music_playing','false')}catch(error){}
   }
-
-  // Au chargement de la page, si la musique était active sur l'accueil, on la relance
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('global-audio');
-    const ball = document.getElementById('crystal-ball');
-
-    if (localStorage.getItem('db_music_playing') === 'true') {
-      audio.play().then(() => {
-        if(ball) ball.classList.remove('paused');
-      }).catch(() => {
-        if(ball) ball.classList.add('paused');
-      });
-    } else {
-      if(ball) ball.classList.add('paused');
-    }
-  });
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  const audio=document.getElementById('global-audio');
+  let shouldPlay=false;
+  try{shouldPlay=localStorage.getItem('db_music_playing')==='true'}catch(error){}
+  if(shouldPlay){audio.play().then(()=>setAudioState(true)).catch(()=>setAudioState(false))}
+  else{setAudioState(false)}
+  audio.addEventListener('play',()=>setAudioState(true));
+  audio.addEventListener('pause',()=>setAudioState(false));
+});
 </script>
-
 </body>
 </html>

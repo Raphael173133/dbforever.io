@@ -52,12 +52,19 @@
       font-weight: 700;
     }
 
-    /* Conteneur pour positionner le bouton Entrer tout en bas */
+    /* Conteneur pour le bouton Entrer */
     .welcome-footer {
       width: 100%;
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+    }
+
+    /* Rehausse le bouton de ~8 mm spécifiquement sur écran mobile */
+    @media (max-width: 600px) {
+      .welcome-footer {
+        margin-bottom: 50px;
+      }
     }
   </style>
 </head>
@@ -72,7 +79,7 @@
   <!-- Espace central flexible pour laisser respirer le fond d'écran -->
   <div></div>
 
-  <!-- Pied de page : Bouton Entrer tout en bas -->
+  <!-- Pied de page : Bouton Entrer rehaussé sur mobile -->
   <div class="welcome-footer">
       <a href="accueil.html" class="enter-btn">ENTRER</a>
   </div>
