@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -45,7 +46,6 @@
       margin: auto;
     }
 
-    /* Conteneur étiré à la largeur exacte des boutons (280px), séparant le titre à gauche et la note à droite */
     .db-title-container {
       display: flex;
       align-items: center;
@@ -66,7 +66,6 @@
       user-select: none;
     }
 
-    /* Bouton note de musique (croche) collé à droite */
     .home-audio-btn {
       display: inline-flex;
       align-items: center;
@@ -199,8 +198,14 @@
     }
 
     @keyframes fadeInRight {
-      from { opacity: 0; transform: translateX(-8px); }
-      to { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     @media (max-width: 600px) {
@@ -244,7 +249,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
@@ -255,79 +262,142 @@
 
 <body class="welcome-body" id="welcome-body">
   <main class="db-container">
+
     <div class="db-title-container">
       <h1 class="db-accueil-title">ACCUEIL</h1>
-      <button type="button" class="home-audio-btn" onclick="toggleAudio()" title="Lancer ou stopper la musique">🎵</button>
+      <button
+        type="button"
+        class="home-audio-btn"
+        onclick="toggleAudio()"
+        title="Lancer ou stopper la musique"
+        aria-label="Lancer ou stopper la musique"
+      >🎵</button>
     </div>
 
     <section class="db-sagas-group" aria-label="Les sagas Dragon Ball">
-      <!-- Dragon Ball : Ouvre storydb.html au clic sur le logo -->
+
+      <!-- DRAGON BALL -->
       <div class="db-menu-group">
-        <a href="storydb.html" class="db-main-btn" aria-label="Dragon Ball" style="text-decoration: none;" onclick="playAudioAndEnter(event)">
+        <button
+          class="db-main-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sub-db"
+          onclick="toggleMenu('sub-db', event)"
+          aria-label="Afficher le menu Dragon Ball"
+        >
           <img src="db_logo.png" alt="Dragon Ball">
-        </a>
+        </button>
+
         <nav id="sub-db" class="db-sub-menu" aria-label="Dragon Ball">
-          <a href="storydb.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
+          <a href="storydb.html" class="db-sub-btn">HISTOIRE</a>
+          <a href="storydb.html" class="db-sub-btn">SERIE TV</a>
           <a href="films-db.html" class="db-sub-btn">FILMS</a>
           <a href="persos-db.html" class="db-sub-btn">PERSOS</a>
         </nav>
       </div>
 
-      <!-- Dragon Ball Z : Ouvre storydbz.html au clic sur le logo -->
+      <!-- DRAGON BALL Z -->
       <div class="db-menu-group">
-        <a href="storydbz.html" class="db-main-btn" aria-label="Dragon Ball Z" style="text-decoration: none;" onclick="playAudioAndEnter(event)">
+        <button
+          class="db-main-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sub-dbz"
+          onclick="toggleMenu('sub-dbz', event)"
+          aria-label="Afficher le menu Dragon Ball Z"
+        >
           <img src="dbz-logo.png" alt="Dragon Ball Z">
-        </a>
+        </button>
+
         <nav id="sub-dbz" class="db-sub-menu" aria-label="Dragon Ball Z">
-          <a href="storydbz.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
+          <a href="storydbz.html" class="db-sub-btn">HISTOIRE</a>
+          <a href="storydbz.html" class="db-sub-btn">SERIE TV</a>
           <a href="films-dbz.html" class="db-sub-btn">FILMS</a>
           <a href="persos-dbz.html" class="db-sub-btn">PERSOS</a>
         </nav>
       </div>
 
+      <!-- DRAGON BALL GT -->
       <div class="db-menu-group">
-        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbgt" onclick="toggleMenu('sub-dbgt', event)">
+        <button
+          class="db-main-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sub-dbgt"
+          onclick="toggleMenu('sub-dbgt', event)"
+        >
           <img src="dbgt_logo.png" alt="Dragon Ball GT">
         </button>
+
         <nav id="sub-dbgt" class="db-sub-menu" aria-label="Dragon Ball GT">
-          <a href="dbgtstory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="dbgtstory.html" class="db-sub-btn">HISTOIRE</a>
           <a href="films-dbgt.html" class="db-sub-btn">FILMS</a>
           <a href="persos-dbgt.html" class="db-sub-btn">PERSOS</a>
+          <a href="dbgtstory.html" class="db-sub-btn">SERIE TV</a>
         </nav>
       </div>
 
+      <!-- DRAGON BALL SUPER -->
       <div class="db-menu-group">
-        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbs" onclick="toggleMenu('sub-dbs', event)">
+        <button
+          class="db-main-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sub-dbs"
+          onclick="toggleMenu('sub-dbs', event)"
+        >
           <img src="dbsuper_logo.png" alt="Dragon Ball Super" class="logo-super">
         </button>
+
         <nav id="sub-dbs" class="db-sub-menu" aria-label="Dragon Ball Super">
-          <a href="dbsstory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="dbsstory.html" class="db-sub-btn">HISTOIRE</a>
           <a href="films-dbs.html" class="db-sub-btn">FILMS</a>
           <a href="persos-dbs.html" class="db-sub-btn">PERSOS</a>
+          <a href="dbsstory.html" class="db-sub-btn">SERIE TV</a>
         </nav>
       </div>
 
+      <!-- DRAGON BALL DAIMA -->
       <div class="db-menu-group">
-        <button class="db-main-btn" type="button" aria-expanded="false" aria-controls="sub-dbdaima" onclick="toggleMenu('sub-dbdaima', event)">
+        <button
+          class="db-main-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="sub-dbdaima"
+          onclick="toggleMenu('sub-dbdaima', event)"
+        >
           <img src="dbdaima_logo.png" alt="Dragon Ball Daima">
         </button>
+
         <nav id="sub-dbdaima" class="db-sub-menu" aria-label="Dragon Ball Daima">
-          <a href="dbdaimastory.html" class="db-sub-btn">SERIE TV</a>
+          <a href="dbdaimastory.html" class="db-sub-btn">HISTOIRE</a>
           <a href="films-dbdaima.html" class="db-sub-btn">FILMS</a>
           <a href="persos-dbdaima.html" class="db-sub-btn">PERSOS</a>
+          <a href="dbdaimastory.html" class="db-sub-btn">SERIE TV</a>
         </nav>
       </div>
+
     </section>
 
+    <!-- JEUX VIDÉOS -->
     <div class="db-menu-group">
-      <button class="db-main-btn db-retro-btn" type="button" aria-expanded="false" aria-controls="sub-jv" onclick="toggleMenu('sub-jv', event)">
+      <button
+        class="db-main-btn db-retro-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="sub-jv"
+        onclick="toggleMenu('sub-jv', event)"
+      >
         <span>JEUX-VIDÉOS</span>
       </button>
+
       <nav id="sub-jv" class="db-sub-menu" aria-label="Jeux vidéo">
         <a href="console.html" class="db-sub-btn">CONSOLE</a>
         <a href="mobile.html" class="db-sub-btn">MOBILE</a>
       </nav>
     </div>
+
   </main>
 
   <audio id="welcome-audio" src="dragonballsuper_accueil.mp3" preload="auto" loop></audio>
@@ -340,6 +410,7 @@
       const button = event.currentTarget;
       const wasOpen = targetMenu.classList.contains("active");
 
+      // Ferme tous les menus.
       document.querySelectorAll(".db-sub-menu").forEach((menu) => {
         menu.classList.remove("active");
       });
@@ -348,12 +419,14 @@
         item.setAttribute("aria-expanded", "false");
       });
 
+      // Ouvre le menu cliqué s'il était fermé.
       if (!wasOpen) {
         targetMenu.classList.add("active");
         button.setAttribute("aria-expanded", "true");
       }
     }
 
+    // Ferme les menus si l'utilisateur clique ailleurs.
     document.addEventListener("click", () => {
       document.querySelectorAll(".db-sub-menu").forEach((menu) => {
         menu.classList.remove("active");
@@ -364,47 +437,27 @@
       });
     });
 
-    // Fonction pour lancer ou mettre en pause la musique directement depuis la note
+    // Lance ou met en pause la musique depuis le bouton 🎵.
     function toggleAudio() {
       const audio = document.getElementById("welcome-audio");
+
       if (audio.paused) {
         audio.currentTime = 0;
+
         audio.play().then(() => {
           try {
             localStorage.setItem("db_music_playing", "true");
           } catch (error) {}
-        }).catch(error => {
+        }).catch((error) => {
           console.log("Lecture audio bloquée par le navigateur :", error);
         });
       } else {
         audio.pause();
+
         try {
           localStorage.setItem("db_music_playing", "false");
         } catch (error) {}
       }
-    }
-
-    function playAudioAndEnter(event) {
-      const link = event.currentTarget;
-      const targetUrl = link.getAttribute("href");
-
-      if (!targetUrl || targetUrl === "#") return;
-
-      event.preventDefault();
-      const audio = document.getElementById("welcome-audio");
-
-      audio.play()
-        .then(() => {
-          try {
-            localStorage.setItem("db_music_playing", "true");
-          } catch (error) {}
-          window.setTimeout(() => {
-            window.location.href = targetUrl;
-          }, 300);
-        })
-        .catch(() => {
-          window.location.href = targetUrl;
-        });
     }
   </script>
 </body>
