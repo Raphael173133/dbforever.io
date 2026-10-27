@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Ball Z - Sagas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f051d;
+      background-image: url("wallpaper_dbzseries.png");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 24px 12px;
+      font-family: 'Rajdhani', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .sagas-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .saga-card {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      background-color: #1a0b2e;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .saga-card:hover {
+      transform: scale(1.01);
+      filter: brightness(1.05);
+    }
+
+    .saga-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Texte centré et positionné tout en haut, sans fond ni flou */
+    .saga-title {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      padding: 0;
+      color: #ffcc00;
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-align: center;
+      background: transparent;
+      border: none;
+      text-shadow: 3px 3px 0 #990000, 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8);
+      user-select: none;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-attachment: scroll; /* Évite les bugs de fond fixe sur certains mobiles */
+      }
+
+      .saga-card {
+        height: 280px;
+      }
+
+      .saga-title {
+        top: 10px;
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="sagas-container">
+
+    <!-- 1. SAGA DES SAIYANS -->
+    <div class="saga-card">
+      <img src="1ssayans.png" alt="Saga des Saiyans">
+      <h2 class="saga-title">SAGA DES SAIYANS</h2>
+    </div>
+
+    <!-- 2. SAGA DE FREEZER -->
+    <div class="saga-card">
+      <img src="2sfreeza.png" alt="Saga de Freezer">
+      <h2 class="saga-title">SAGA DE FREEZER</h2>
+    </div>
+
+    <!-- 3. SAGA DE CELL -->
+    <div class="saga-card">
+      <img src="3scell.png" alt="Saga de Cell">
+      <h2 class="saga-title">SAGA DE CELL</h2>
+    </div>
+
+    <!-- 4. SAGA DE BUU -->
+    <div class="saga-card">
+      <img src="4sbuu.png" alt="Saga de Buu">
+      <h2 class="saga-title">SAGA DE BUU</h2>
+    </div>
+
+  </main>
+
+</body>
+</html>
