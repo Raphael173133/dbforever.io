@@ -93,6 +93,7 @@
     }
 
     .db-menu-group {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -157,12 +158,16 @@
       text-shadow: 2px 2px #000, 0 0 8px #00ffff;
     }
 
+    /* Menu déroulant des boutons verts : alignés horizontalement sur grand écran */
     .db-sub-menu {
       display: none;
-      flex-wrap: wrap;
+      flex-direction: row;
       align-items: center;
       gap: 6px;
+      position: absolute;
+      left: 286px;
       animation: fadeInRight 0.2s ease-in-out;
+      z-index: 10;
     }
 
     .db-sub-menu.active {
@@ -180,7 +185,7 @@
       background: linear-gradient(135deg, var(--green-light), var(--green-dark));
       box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-decoration: none;
@@ -206,6 +211,7 @@
       }
     }
 
+    /* Version mobile : les boutons verts s'affichent proprement en dessous */
     @media (max-width: 600px) {
       body.welcome-body {
         align-items: flex-start;
@@ -234,8 +240,11 @@
       }
 
       .db-sub-menu {
+        position: static;
+        flex-wrap: wrap;
         justify-content: center;
         width: 100%;
+        margin-top: 6px;
       }
 
       .db-sub-btn {
@@ -289,8 +298,8 @@
         </button>
 
         <nav id="sub-db" class="db-sub-menu" aria-label="Dragon Ball">
-          <a href="storydb.html" class="db-sub-btn">HISTOIRE</a>
-          <a href="storydb.html" class="db-sub-btn">SERIE TV</a>
+          <a href="storydb.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">HISTOIRE</a>
+          <a href="storydb.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
           <a href="films-db.html" class="db-sub-btn">FILMS</a>
           <a href="persos-db.html" class="db-sub-btn">PERSOS</a>
         </nav>
@@ -310,8 +319,8 @@
         </button>
 
         <nav id="sub-dbz" class="db-sub-menu" aria-label="Dragon Ball Z">
-          <a href="storydbz.html" class="db-sub-btn">HISTOIRE</a>
-          <a href="storydbz.html" class="db-sub-btn">SERIE TV</a>
+          <a href="storydbz.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">HISTOIRE</a>
+          <a href="storydbz.html" class="db-sub-btn" onclick="playAudioAndEnter(event)">SERIE TV</a>
           <a href="films-dbz.html" class="db-sub-btn">FILMS</a>
           <a href="persos-dbz.html" class="db-sub-btn">PERSOS</a>
         </nav>
@@ -453,6 +462,29 @@
           localStorage.setItem("db_music_playing", "false");
         } catch (error) {}
       }
+    }
+
+    function playAudioAndEnter(event) {
+      const link = event.currentTarget;
+      const targetUrl = link.getAttribute("href");
+
+      if (!targetUrl || targetUrl === "#") return;
+
+      event.preventDefault();
+      const audio = document.getElementById("welcome-audio");
+
+      audio.play()
+        .then(() => {
+          try {
+            localStorage.setItem("db_music_playing", "true");
+          } catch (error) {}
+          window.setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 300);
+        })
+        .catch(() => {
+          window.location.href = targetUrl;
+        });
     }
   </script>
 </body>
