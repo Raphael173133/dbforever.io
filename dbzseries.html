@@ -33,6 +33,13 @@
       margin: 0 auto;
     }
 
+    /* Rendre le lien cliquable tout en conservant le comportement bloc */
+    .saga-link {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
     .saga-card {
       position: relative;
       width: 100%;
@@ -43,6 +50,7 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
       background-color: #1a0b2e;
       transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
     }
 
     .saga-card:hover {
@@ -57,7 +65,6 @@
       display: block;
     }
 
-    /* Texte centré et positionné tout en haut, sans fond ni flou */
     .saga-title {
       position: absolute;
       top: 15px;
@@ -80,7 +87,7 @@
 
     @media (max-width: 600px) {
       body {
-        background-attachment: scroll; /* Évite les bugs de fond fixe sur certains mobiles */
+        background-attachment: scroll;
       }
 
       .saga-card {
@@ -98,11 +105,13 @@
 
   <main class="sagas-container">
 
-    <!-- 1. SAGA DES SAIYANS -->
-    <div class="saga-card">
-      <img src="1ssayans.png" alt="Saga des Saiyans">
-      <h2 class="saga-title">SAGA DES SAIYANS</h2>
-    </div>
+    <!-- 1. SAGA DES SAIYANS (Lien vers le premier épisode) -->
+  <a href="dragon_ball_z/saga_saiyans/ssaiyans_ep01.html" class="saga-link">
+  <div class="saga-card">
+    <img src="1ssayans.png" alt="Saga des Saiyans">
+    <h2 class="saga-title">SAGA DES SAIYANS</h2>
+  </div>
+</a>
 
     <!-- 2. SAGA DE FREEZER -->
     <div class="saga-card">
