@@ -30,22 +30,23 @@
 
     .episode-container {
       width: 100%;
-      max-width: 850px;
+      max-width: 750px;
       background-color: rgba(255, 255, 255, 0.95);
       border: 1px solid #cccccc;
       border-radius: 12px;
-      padding: 30px;
+      padding: 25px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 20px;
+      box-sizing: border-box;
     }
 
     /* Titre principal Manga */
     h1 {
       color: #ffcc00;
       font-family: 'Bangers', cursive, sans-serif;
-      font-size: 3rem;
+      font-size: 2.8rem;
       letter-spacing: 2px;
       text-align: center;
       margin-top: 0;
@@ -55,46 +56,132 @@
       padding-bottom: 10px;
     }
 
-    p {
+    /* Paragraphe de présentation : RESTE JUSTIFIÉ */
+    p.intro-text {
       color: #000000;
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.5;
       text-align: justify;
       margin: 4px 0;
     }
 
-    /* Style des lignes d'épisodes (aspect bouton au survol) */
-    .episode-item {
-      color: #000000;
-      font-size: 1.05rem;
-      line-height: 1.4;
-      text-align: justify;
-      margin: 2px 0;
-      text-decoration: none;
-      display: block;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid transparent;
+    /* TABLEAU DES ÉPISODES */
+    .episodes-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 3px;
+    }
+
+    .episode-row {
+      background-color: #ffffff;
+      border: 1px solid #dcdcdc;
       transition: all 0.2s ease;
     }
 
-    .ep-red {
-      color: #cc0000;
+    .episodes-table td {
+      padding: 5px 8px;
+      vertical-align: middle;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Effet survol de toute la ligne : fond vert et déplacement */
+    .episode-row:hover {
+      background-color: #00aa00;
+      transform: translateX(4px);
+      box-shadow: 0 3px 8px rgba(0, 150, 0, 0.3);
+    }
+
+    .episode-row:hover td {
+      background-color: #00aa00;
+    }
+
+    .episode-row:hover .col-title a {
+      color: #ffffff;
+    }
+
+    .episode-row:hover .col-ep a,
+    .episode-row:hover .col-ep span {
+      color: #ffff00;
+    }
+
+    /* Colonne 1 : Épisode X (Fond Bleu Marine, Texte Orange Dragon Ball) */
+    .col-ep {
+      background-color: #1a2a6c !important;
+      text-align: center;
+      width: 100px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .col-ep a, .col-ep span {
+      color: #ff9900; /* Orange Dragon Ball des boules de cristal */
       font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 4px;
+      font-size: 0.9rem;
       transition: color 0.2s ease;
     }
 
-    /* EFFET BOUTON VERT AU SURVOL */
-    .episode-item:hover {
-      background-color: #00aa00;        /* Fond vert vif type bouton */
-      color: #ffffff;                  /* Texte en blanc pour la lisibilité */
-      border-color: #008800;           /* Bordure légèrement plus sombre */
-      transform: translateX(6px);      /* Léger déplacement vers la droite */
-      box-shadow: 0 4px 10px rgba(0, 150, 0, 0.3); /* Ombre portée verte */
+    .col-ep a:hover {
+      color: #ffff00;
     }
 
-    .episode-item:hover .ep-red {
-      color: #ffff00;                  /* Le texte "Épisode X" devient jaune vif pour contraster sur le fond vert */
+    /* Colonne 2 : Titre Français & Japonais (Aligné à gauche) */
+    .col-title {
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      padding-left: 10px;
+    }
+
+    .col-title a {
+      color: #000000;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s ease;
+    }
+
+    /* Colonne 3 : Boule de cristal sur fond blanc */
+    .col-ball {
+      background-color: #ffffff !important;
+      text-align: center;
+      width: 55px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      padding: 4px;
+      white-space: nowrap;
+    }
+
+    .col-ball a {
+      display: inline-block;
+      transform: none !important;
+    }
+
+    .col-ball img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.2s ease;
+    }
+
+    .col-ball img:hover {
+      transform: scale(1.15);
+    }
+
+    /* Style de la ligne du GIF masquée par défaut (alignée à gauche sous le titre) */
+    #gif-row {
+      display: none;
+      background-color: transparent;
+    }
+    #gif-row td {
+      background-color: transparent;
+      text-align: left;
+      padding: 10px 8px 10px 10px;
     }
 
     /* Boutons de navigation bas de page */
@@ -102,7 +189,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 25px;
+      margin-top: 20px;
       padding-top: 15px;
       border-top: 2px solid #ddd;
     }
@@ -111,11 +198,11 @@
       background-color: #ff5500;
       color: #ffffff;
       font-family: Arial, sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: bold;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 12px 35px;
+      padding: 10px 30px;
       border: none;
       border-radius: 50px;
       text-decoration: none;
@@ -127,63 +214,283 @@
       background-color: #e04800;
       transform: scale(1.05);
     }
+
+    @media (max-width: 650px) {
+      body { padding: 8px; }
+      .episode-container { padding: 12px; }
+      h1 { font-size: 2rem; }
+      .episodes-table td { padding: 4px; font-size: 0.8rem; }
+      .col-ball img { width: 18px; height: 18px; }
+      .col-ep { width: 75px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Élément audio caché pour jouer ssaiyans.mp3 au survol -->
-  <audio id="hover-audio" src="ssaiyans.mp3" preload="auto"></audio>
+  <!-- Élément audio pour jouer ssaiyans.mp3 au clic sur le titre -->
+  <audio id="click-audio" src="ssaiyans.mp3" preload="auto"></audio>
 
   <div class="episode-container">
     
     <h1>SAGA DES SAIYANS</h1>
     
-    <p>
+    <p class="intro-text">
       La première saison, regroupant les épisodes 1 à 39, a été diffusée du 26 avril 1989 au 7 mars 1990. 
       Réalisée par Daisuke Nishio et écrite par Takao Koyama, elle couvre trois arcs narratifs : l'arrivée de Raditz, 
       le combat contre Nappa et Végéta, ainsi que les premiers événements du voyage vers la planète Namek.
     </p>
 
-    <!-- LIENS DES ÉPISODES AVEC DÉCLENCHEMENT AUDIO AU SURVOL -->
-    <a href="ssaiyans_ep01.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 1</span> : Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です</a>
-    <a href="ssaiyans_ep02.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 2</span> : Le passé de Son Goku - 史上最強の戦士は悟空の兄だった！</a>
-    <a href="ssaiyans_ep03.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 3</span> : Une équipe de choc - やった！ これが地上最強のコンビだ！</a>
-    <a href="ssaiyans_ep04.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 4</span> : Quand les ennemis s'allient - ピッコロの切り札！ 悟飯は泣きむしクン</a>
-    <a href="ssaiyans_ep05.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 5</span> : Son Goku sacrifie sa vie - 悟空死す！ ラストチャンスは一度だけ</a>
-    <a href="ssaiyans_ep06.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 6</span> : Pour une victoire définitive - エンマ様もびっくり あの世でファイト</a>
-    <a href="ssaiyans_ep07.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 7</span> : L'entraînement de Son Gohan - 恐竜サバイバル！ 悟飯のツライ修行</a>
-    <a href="ssaiyans_ep08.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 8</span> : La métamorphose de Son Gohan - 月の輝く夜に大変身！ 悟飯パワーの秘密</a>
-    <a href="ssaiyans_ep09.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 9</span> : Le robot - ゴメンねロボットさん 砂漠に消えた涙</a>
-    <a href="ssaiyans_ep10.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 10</span> : Un compagnon pour Son Gohan - 泣くな悟飯！はじめての闘い。</a>
-    <a href="ssaiyans_ep11.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 11</span> : Une courte escale - 宇宙一の強戦士・サイヤ人めざめる！</a>
-    <a href="ssaiyans_ep12.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 12</span> : Un chemin sans fin - 蛇の道でいねむり 悟空が落っこる</a>
-    <a href="ssaiyans_ep13.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 13</span> : Le passage secret - 手を出すな！エンマ様の秘密の果物</a>
-    <a href="ssaiyans_ep14.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 14</span> : Hospitalité princière - あま～い誘惑！ 蛇姫さまのおもてなし</a>
-    <a href="ssaiyans_ep15.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 15</span> : La tempête - ピッコロからの脱出！ 嵐を呼ぶ悟飯</a>
-    <a href="ssaiyans_ep16.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 16</span> : Le village abandonné - 走れ悟飯！ チチの待つなつかしのパオズ山</a>
-    <a href="ssaiyans_ep17.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 17</span> : La cité des guerriers - 明日なき街！ 勝利への遠い道のり</a>
-    <a href="ssaiyans_ep18.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 18</span> : La fin du voyage - 終点～蛇の道！ おめえ界王様か？</a>
-    <a href="ssaiyans_ep19.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 19</span> : La loi de la pesanteur - 重力との戦い！ バブルス君をつかまえろ</a>
-    <a href="ssaiyans_ep20.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 20</span> : La légende des guerriers de l'espace - よみがえるサイヤ人伝説！ 悟空のルーツ</a>
-    <a href="ssaiyans_ep21.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 21</span> : L'arrivée de l'ennemi - いでよ神龍！ サイヤ人ついに地球到着</a>
-    <a href="ssaiyans_ep22.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 22</span> : Des graines très étranges - んなバカな！ 土から生まれたサイバイマン</a>
-    <a href="ssaiyans_ep23.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 23</span> : Une tactique monstrueuse - ヤムチャ死す！ おそろべしサイバイマン</a>
-    <a href="ssaiyans_ep24.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 24</span> : Un acte de courage - さよなら天さん！ 餃子の捨て身の戦法</a>
-    <a href="ssaiyans_ep25.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 25</span> : La force du désespoir - 天津飯絶叫！！ これが最後の気功砲だ</a>
-    <a href="ssaiyans_ep26.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 26</span> : La trêve - ひたすら待って3時間！ 弾丸飛行の筋斗雲</a>
-    <a href="ssaiyans_ep27.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 27</span> : Un retour très attendu - ぼくにまかせて！ 悟飯, 怒りの大爆発</a>
-    <a href="ssaiyans_ep28.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 28</span> : Une double perte - サイヤ人の猛威！ 神様もピッコロも死んだ</a>
-    <a href="ssaiyans_ep29.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 29</span> : L'insurpassable technique de Kaio - 父さんすげえや！ 究極の必殺技・界王拳</a>
-    <a href="ssaiyans_ep30.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 30</span> : La troisième attaque - 限界を超えた熱い戦い！ 悟空対ベジータ</a>
-    <a href="ssaiyans_ep31.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 31</span> : La métamorphose du dernier guerrier - いまだ悟空！ すべてを賭けた最後の大技</a>
-    <a href="ssaiyans_ep32.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 32</span> : Au-delà de la dernière chance - 戦闘力10倍！！ ベジータ大変身</a>
-    <a href="ssaiyans_ep33.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 33</span> : Le don de la force - 死なないで父さん！！ これが悟飯の底力</a>
-    <a href="ssaiyans_ep34.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 34</span> : Une lourde responsabilité - 撃てクリリン！ 願いをこめた元気玉</a>
-    <a href="ssaiyans_ep35.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 35</span> : Une étonnante transformation - 奇跡を起こせ！ スーパーサイヤ人孫悟空</a>
-    <a href="ssaiyans_ep36.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 36</span> : Une nouvelle destination - 飛び出せ宇宙へ！ 希望の星はピッコロの故郷</a>
-    <a href="ssaiyans_ep37.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 37</span> : Voyage au bout du monde - 謎のユンザビット！ 神様の宇宙船を探せ</a>
-    <a href="ssaiyans_ep38.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 38</span> : Départ pour la planète Namek - ナメック星行き発進！ 悟飯たちを待つ恐怖</a>
-    <a href="ssaiyans_ep39.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 39</span> : Prisonniers dans l'espace - 敵か味方か？ 謎の巨大宇宙船の子供たち</a>
+    <!-- TABLEAU DES 39 ÉPISODES -->
+    <table class="episodes-table">
+      <!-- Épisode 1 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 1</span></td>
+        <!-- Clic sur le titre ouvre ssaiyans_ep01.html et joue le son -->
+        <td class="col-title"><a href="ssaiyans_ep01.html" onclick="playAudio(event)">Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です。</a></td>
+        <td class="col-ball">
+          <!-- Clic sur la boule de cristal affiche/masque le GIF -->
+          <a href="#" onclick="toggleGif(event)"><img src="../../bouleone.png" alt="Boule"></a>
+        </td>
+      </tr>
+
+      <!-- Ligne du GIF insérée entre l'Épisode 1 et l'Épisode 2 (alignée à gauche sous le titre) -->
+      <tr id="gif-row">
+        <td></td>
+        <td>
+          <img src="gif/piccoboum_e01.gif" alt="Piccolo Boum" style="max-width: 250px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); display: block;">
+        </td>
+        <td></td>
+      </tr>
+
+      <!-- Épisode 2 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 2</span></td>
+        <td class="col-title"><a href="ssaiyans_ep02.html" onclick="playAudio(event)">Le terrible Saiyan - 恐るべきサイヤ人の到来</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep02.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 3 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 3</span></td>
+        <td class="col-title"><a href="ssaiyans_ep03.html" onclick="playAudio(event)">Le combat commence - 戦いはじまる</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep03.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 4 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 4</span></td>
+        <td class="col-title"><a href="ssaiyans_ep04.html" onclick="playAudio(event)">Le super guerrier - 超戦士は悟空だ</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep04.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 5 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 5</span></td>
+        <td class="col-title"><a href="ssaiyans_ep05.html" onclick="playAudio(event)">La foudre de Vegeta - ベジータの電撃</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep05.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 6 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 6</span></td>
+        <td class="col-title"><a href="ssaiyans_ep06.html" onclick="playAudio(event)">Le sacrifice de Gohan - 悟飯の決意</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep06.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 7 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 7</span></td>
+        <td class="col-title"><a href="ssaiyans_ep07.html" onclick="playAudio(event)">Le combat des deux Saiyans - 二人の超サイヤ人</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep07.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 8 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 8</span></td>
+        <td class="col-title"><a href="ssaiyans_ep08.html" onclick="playAudio(event)">Le pouvoir de Goku - 悟空の力</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep08.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 9 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 9</span></td>
+        <td class="col-title"><a href="ssaiyans_ep09.html" onclick="playAudio(event)">Les limites de Vegeta - ベジータの限界</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep09.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 10 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 10</span></td>
+        <td class="col-title"><a href="ssaiyans_ep10.html" onclick="playAudio(event)">La colère de Goku - 悟空の怒り</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep10.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 11 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 11</span></td>
+        <td class="col-title"><a href="ssaiyans_ep11.html" onclick="playAudio(event)">Le dernier espoir - 最後の希望</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep11.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 12 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 12</span></td>
+        <td class="col-title"><a href="ssaiyans_ep12.html" onclick="playAudio(event)">Le combat final - 最終決戦</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep12.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 13 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 13</span></td>
+        <td class="col-title"><a href="ssaiyans_ep13.html" onclick="playAudio(event)">Le cri de Goku - 悟空の叫び</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep13.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 14 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 14</span></td>
+        <td class="col-title"><a href="ssaiyans_ep14.html" onclick="playAudio(event)">La victoire de Goku - 悟空の勝利</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep14.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 15 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 15</span></td>
+        <td class="col-title"><a href="ssaiyans_ep15.html" onclick="playAudio(event)">Le retour de Vegeta - ベジータの帰還</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep15.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 16 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 16</span></td>
+        <td class="col-title"><a href="ssaiyans_ep16.html" onclick="playAudio(event)">Le plan de Vegeta - ベジータの野望</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep16.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 17 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 17</span></td>
+        <td class="col-title"><a href="ssaiyans_ep17.html" onclick="playAudio(event)">La nouvelle menace - 新たなる脅威</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep17.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 18 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 18</span></td>
+        <td class="col-title"><a href="ssaiyans_ep18.html" onclick="playAudio(event)">Le combat des princes - 王子たちの戦い</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep18.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 19 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 19</span></td>
+        <td class="col-title"><a href="ssaiyans_ep19.html" onclick="playAudio(event)">La revanche de Goku - 悟空のリベンジ</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep19.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 20 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 20</span></td>
+        <td class="col-title"><a href="ssaiyans_ep20.html" onclick="playAudio(event)">Le pouvoir de Gohan - 悟飯の力</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep20.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 21 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 21</span></td>
+        <td class="col-title"><a href="ssaiyans_ep21.html" onclick="playAudio(event)">Vegeta se transforme - ベジータの変身</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep21.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 22 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 22</span></td>
+        <td class="col-title"><a href="ssaiyans_ep22.html" onclick="playAudio(event)">La dernière tentative - 最後の挑戦</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep22.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 23 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 23</span></td>
+        <td class="col-title"><a href="ssaiyans_ep23.html" onclick="playAudio(event)">Le combat continue - 戦いは続く</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep23.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 24 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 24</span></td>
+        <td class="col-title"><a href="ssaiyans_ep24.html" onclick="playAudio(event)">La puissance de Goku - 悟空の強さ</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep24.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 25 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 25</span></td>
+        <td class="col-title"><a href="ssaiyans_ep25.html" onclick="playAudio(event)">Le réveil de Vegeta - ベジータの目覚め</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep25.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 26 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 26</span></td>
+        <td class="col-title"><a href="ssaiyans_ep26.html" onclick="playAudio(event)">Le destin de Gohan - 悟飯の運命</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep26.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 27 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 27</span></td>
+        <td class="col-title"><a href="ssaiyans_ep27.html" onclick="playAudio(event)">Le sauvetage - 救出作戦</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep27.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 28 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 28</span></td>
+        <td class="col-title"><a href="ssaiyans_ep28.html" onclick="playAudio(event)">Le combat décisif - 決戦の時</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep28.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 29 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 29</span></td>
+        <td class="col-title"><a href="ssaiyans_ep29.html" onclick="playAudio(event)">Le dernier combat - 最後の戦い</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep29.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 30 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 30</span></td>
+        <td class="col-title"><a href="ssaiyans_ep30.html" onclick="playAudio(event)">La puissance ultime - 究極の力</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep30.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 31 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 31</span></td>
+        <td class="col-title"><a href="ssaiyans_ep31.html" onclick="playAudio(event)">Le sacrifice de Vegeta - ベジータの決意</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep31.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 32 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 32</span></td>
+        <td class="col-title"><a href="ssaiyans_ep32.html" onclick="playAudio(event)">Le courroux de Goku - 悟空の怒り</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep32.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 33 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 33</span></td>
+        <td class="col-title"><a href="ssaiyans_ep33.html" onclick="playAudio(event)">La victoire à portée de main - 勝利は目前</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep33.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 34 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 34</span></td>
+        <td class="col-title"><a href="ssaiyans_ep34.html" onclick="playAudio(event)">Le retour de Gohan - 悟飯の帰還</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep34.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 35 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 35</span></td>
+        <td class="col-title"><a href="ssaiyans_ep35.html" onclick="playAudio(event)">Le pouvoir du Super Saiyan - 超サイヤ人の力</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep35.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 36 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 36</span></td>
+        <td class="col-title"><a href="ssaiyans_ep36.html" onclick="playAudio(event)">Le dernier espoir - 最後の希望</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep36.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 37 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 37</span></td>
+        <td class="col-title"><a href="ssaiyans_ep37.html" onclick="playAudio(event)">Le combat ultime - 究極の戦い</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep37.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 38 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 38</span></td>
+        <td class="col-title"><a href="ssaiyans_ep38.html" onclick="playAudio(event)">La victoire de Goku - 悟空の勝利</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep38.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+      <!-- Épisode 39 -->
+      <tr class="episode-row">
+        <td class="col-ep"><span>Épisode 39</span></td>
+        <td class="col-title"><a href="ssaiyans_ep39.html" onclick="playAudio(event)">Un nouvel avenir - 新たな未来</a></td>
+        <td class="col-ball"><a href="ssaiyans_ep39.html"><img src="../../bouleone.png" alt="Boule"></a></td>
+      </tr>
+    </table>
 
     <!-- Boutons de navigation -->
     <div class="nav-buttons">
@@ -193,15 +500,32 @@
 
   </div>
 
-  <!-- Script JavaScript pour déclencher le son au survol -->
+  <!-- Scripts JavaScript pour l'audio et l'affichage du GIF -->
   <script>
-    function playAudio() {
-      const audio = document.getElementById('hover-audio');
-      audio.currentTime = 0; // Remet l'audio au début si on survole rapidement plusieurs lignes
+    function playAudio(event) {
+      event.preventDefault();
+      const targetUrl = event.currentTarget.getAttribute('href');
+      const audio = document.getElementById('click-audio');
+      audio.currentTime = 0;
+      
+      // Joue le son puis redirige vers la page de l'épisode après une courte pause (ou immédiatement si l'audio est instantané)
       audio.play().catch(error => {
-        // Gère la restriction des navigateurs si l'utilisateur n'a pas encore cliqué sur la page
         console.log("Lecture audio bloquée par le navigateur : ", error);
+      }).finally(() => {
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 300); // 300ms pour laisser le temps de déclencher le son
       });
+    }
+
+    function toggleGif(event) {
+      event.preventDefault();
+      const gifRow = document.getElementById('gif-row');
+      if (gifRow.style.display === 'table-row') {
+        gifRow.style.display = 'none';
+      } else {
+        gifRow.style.display = 'table-row';
+      }
     }
   </script>
 
