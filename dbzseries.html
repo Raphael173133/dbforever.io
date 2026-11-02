@@ -19,7 +19,7 @@
       padding: 24px 12px;
       font-family: 'Rajdhani', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
@@ -85,6 +85,36 @@
       z-index: 2;
     }
 
+    /* Style du bouton Retour en bas */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+
+    .btn-nav {
+      background-color: #ff5500;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 12px 35px;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-nav:hover {
+      background-color: #e04800;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 600px) {
       body {
         background-attachment: scroll;
@@ -105,13 +135,13 @@
 
   <main class="sagas-container">
 
-    <!-- 1. SAGA DES SAIYANS (Lien vers le premier épisode) -->
-  <a href="dragon_ball_z/saga_saiyans/ssaiyans_ep01.html" class="saga-link">
-  <div class="saga-card">
-    <img src="1ssayans.png" alt="Saga des Saiyans">
-    <h2 class="saga-title">SAGA DES SAIYANS</h2>
-  </div>
-</a>
+    <!-- 1. SAGA DES SAIYANS (Lien vers la page de présentation) -->
+    <a href="dragon_ball_z/saga_saiyans/ssaiyans_présentation.html" class="saga-link">
+      <div class="saga-card">
+        <img src="1ssayans.png" alt="Saga des Saiyans">
+        <h2 class="saga-title">SAGA DES SAIYANS</h2>
+      </div>
+    </a>
 
     <!-- 2. SAGA DE FREEZER -->
     <div class="saga-card">
@@ -129,6 +159,11 @@
     <div class="saga-card">
       <img src="4sbuu.png" alt="Saga de Buu">
       <h2 class="saga-title">SAGA DE BUU</h2>
+    </div>
+
+    <!-- Bouton RETOUR vers accueil.html tout en bas -->
+    <div class="nav-buttons">
+      <a href="accueil.html" class="btn-nav">Retour</a>
     </div>
 
   </main>

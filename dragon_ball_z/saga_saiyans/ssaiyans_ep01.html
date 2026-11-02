@@ -101,6 +101,35 @@
       margin-top: 15px;
       border-radius: 0 6px 6px 0;
     }
+
+    /* Style pour le lien "Liste des épisodes" avec le gant */
+    .back-to-list {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .back-to-list img {
+      width: 70px;
+      height: auto;
+    }
+
+    .back-to-list span {
+      font-family: 'Liberation Serif', serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-list:hover span {
+      color: #cc0000;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -109,11 +138,6 @@
     
     <!-- Titre principal en style Manga -->
     <h1>SAGA DES SAIYANS</h1>
-    <p>
-      La première saison, regroupant les épisodes 1 à 39, a été diffusée du 26 avril 1989 au 7 mars 1990. 
-      Réalisée par Daisuke Nishio et écrite par Takao Koyama, elle couvre trois arcs narratifs : l'arrivée de Raditz, 
-      le combat contre Nappa et Végéta, ainsi que les premiers événements du voyage vers la planète Namek.
-    </p>
 
     <!-- Épisode 1 avec "Épisode 1" en rouge -->
     <h2><span class="ep-red">Épisode 1</span> : Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です</h2>
@@ -148,6 +172,12 @@
       <img src="ssaiyans_s01E1rq.png" alt="Son Gohan fils de Son Goku et Chichi">
       <div class="image-caption">(ci-dessus Son Gohan fils de Son Goku et Chichi)</div>
     </div>
+
+    <!-- Lien bas de page : Gant (gant.png) + LISTE DES EPISODES vers ssaiyans_présentation.html -->
+    <a href="ssaiyans_présentation.html" class="back-to-list">
+      <img src="gant.png" alt="Main gantée pointant vers la liste">
+      <span>LISTE DES EPISODES</span>
+    </a>
 
   </div>
 

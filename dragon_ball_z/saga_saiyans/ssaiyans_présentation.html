@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saga des Saiyans - Épisodes</title>
+  <!-- Import des polices Bangers et Liberation Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Liberation+Serif:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #0f051d;
+      background-image: url("ssaiyans.png");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #000000;
+      font-family: 'Liberation Serif', serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .episode-container {
+      width: 100%;
+      max-width: 850px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid #cccccc;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Titre principal Manga */
+    h1 {
+      color: #ffcc00;
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px 0 #990000, 0 0 10px rgba(0, 0, 0, 0.5);
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 10px;
+    }
+
+    p {
+      color: #000000;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      text-align: justify;
+      margin: 4px 0;
+    }
+
+    /* Style des épisodes (compact sans espacement) */
+    .episode-item {
+      color: #000000;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      text-align: justify;
+      margin: 0;
+      text-decoration: none;
+      display: block;
+      padding: 2px 4px;
+      border-radius: 2px;
+      /* Animation fluide pour le mouvement et la couleur */
+      transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .ep-red {
+      color: #cc0000;
+      font-weight: bold;
+      transition: color 0.2s ease;
+    }
+
+    /* EFFET AU SURVOL DU CURSEUR (HOVER) */
+    .episode-item:hover {
+      color: #009900;                /* Changement de couleur du texte en vert */
+      transform: translateX(6px);    /* Léger décalage vers la droite */
+      background-color: rgba(0, 153, 0, 0.08); /* Léger fond vert translucide */
+    }
+
+    .episode-item:hover .ep-red {
+      color: #00cc00;                /* Le préfixe "Épisode X" passe aussi en vert plus vif */
+    }
+
+    /* Boutons de navigation bas de page */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 2px solid #ddd;
+    }
+
+    .btn-nav {
+      background-color: #ff5500;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 12px 35px;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-nav:hover {
+      background-color: #e04800;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="episode-container">
+    
+    <h1>SAGA DES SAIYANS</h1>
+    
+    <p>
+      La première saison, regroupant les épisodes 1 à 39, a été diffusée du 26 avril 1989 au 7 mars 1990. 
+      Réalisée par Daisuke Nishio et écrite par Takao Koyama, elle couvre trois arcs narratifs : l'arrivée de Raditz, 
+      le combat contre Nappa et Végéta, ainsi que les premiers événements du voyage vers la planète Namek.
+    </p>
+
+    <!-- LIEN DE L'ÉPISODE 1 VERS ssaiyans_ep01.html -->
+    <a href="ssaiyans_ep01.html" class="episode-item"><span class="ep-red">Épisode 1</span> : Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です</a>
+
+    <!-- Reste des épisodes -->
+    <a href="ssaiyans_ep02.html" class="episode-item"><span class="ep-red">Épisode 2</span> : Le passé de Son Goku - 史上最強の戦士は悟空の兄だった！</a>
+    <a href="ssaiyans_ep03.html" class="episode-item"><span class="ep-red">Épisode 3</span> : Une équipe de choc - やった！ これが地上最強のコンビだ！</a>
+    <a href="ssaiyans_ep04.html" class="episode-item"><span class="ep-red">Épisode 4</span> : Quand les ennemis s'allient - ピッコロの切り札！ 悟飯は泣きむしクン</a>
+    <a href="ssaiyans_ep05.html" class="episode-item"><span class="ep-red">Épisode 5</span> : Son Goku sacrifie sa vie - 悟空死す！ ラストチャンスは一度だけ</a>
+    <a href="ssaiyans_ep06.html" class="episode-item"><span class="ep-red">Épisode 6</span> : Pour une victoire définitive - エンマ様もびっくり あの世でファイト</a>
+    <a href="ssaiyans_ep07.html" class="episode-item"><span class="ep-red">Épisode 7</span> : L'entraînement de Son Gohan - 恐竜サバイバル！ 悟飯のツライ修行</a>
+    <a href="ssaiyans_ep08.html" class="episode-item"><span class="ep-red">Épisode 8</span> : La métamorphose de Son Gohan - 月の輝く夜に大変身！ 悟飯パワーの秘密</a>
+    <a href="ssaiyans_ep09.html" class="episode-item"><span class="ep-red">Épisode 9</span> : Le robot - ゴメンねロボットさん 砂漠に消えた涙</a>
+    <a href="ssaiyans_ep10.html" class="episode-item"><span class="ep-red">Épisode 10</span> : Un compagnon pour Son Gohan - 泣くな悟飯！はじめての闘い。</a>
+    <a href="ssaiyans_ep11.html" class="episode-item"><span class="ep-red">Épisode 11</span> : Une courte escale - 宇宙一の強戦士・サイヤ人めざめる！</a>
+    <a href="ssaiyans_ep12.html" class="episode-item"><span class="ep-red">Épisode 12</span> : Un chemin sans fin - 蛇の道でいねむり 悟空が落っこる</a>
+    <a href="ssaiyans_ep13.html" class="episode-item"><span class="ep-red">Épisode 13</span> : Le passage secret - 手を出すな！エンマ様の秘密の果物</a>
+    <a href="ssaiyans_ep14.html" class="episode-item"><span class="ep-red">Épisode 14</span> : Hospitalité princière - あま～い誘惑！ 蛇姫さまのおもてなし</a>
+    <a href="ssaiyans_ep15.html" class="episode-item"><span class="ep-red">Épisode 15</span> : La tempête - ピッコロからの脱出！ 嵐を呼ぶ悟飯</a>
+    <a href="ssaiyans_ep16.html" class="episode-item"><span class="ep-red">Épisode 16</span> : Le village abandonné - 走れ悟飯！ チチの待つなつかしのパオズ山</a>
+    <a href="ssaiyans_ep17.html" class="episode-item"><span class="ep-red">Épisode 17</span> : La cité des guerriers - 明日なき街！ 勝利への遠い道のり</a>
+    <a href="ssaiyans_ep18.html" class="episode-item"><span class="ep-red">Épisode 18</span> : La fin du voyage - 終点～蛇の道！ おめえ界王様か？</a>
+    <a href="ssaiyans_ep19.html" class="episode-item"><span class="ep-red">Épisode 19</span> : La loi de la pesanteur - 重力との戦い！ バブルス君をつかまえろ</a>
+    <a href="ssaiyans_ep20.html" class="episode-item"><span class="ep-red">Épisode 20</span> : La légende des guerriers de l'espace - よみがえるサイヤ人伝説！ 悟空のルーツ</a>
+    <a href="ssaiyans_ep21.html" class="episode-item"><span class="ep-red">Épisode 21</span> : L'arrivée de l'ennemi - いでよ神龍！ サイヤ人ついに地球到着</a>
+    <a href="ssaiyans_ep22.html" class="episode-item"><span class="ep-red">Épisode 22</span> : Des graines très étranges - んなバカな！ 土から生まれたサイバイマン</a>
+    <a href="ssaiyans_ep23.html" class="episode-item"><span class="ep-red">Épisode 23</span> : Une tactique monstrueuse - ヤムチャ死す！ おそろべしサイバイマン</a>
+    <a href="ssaiyans_ep24.html" class="episode-item"><span class="ep-red">Épisode 24</span> : Un acte de courage - さよなら天さん！ 餃子の捨て身の戦法</a>
+    <a href="ssaiyans_ep25.html" class="episode-item"><span class="ep-red">Épisode 25</span> : La force du désespoir - 天津飯絶叫！！ これが最後の気功砲だ</a>
+    <a href="ssaiyans_ep26.html" class="episode-item"><span class="ep-red">Épisode 26</span> : La trêve - ひたすら待って3時間！ 弾丸飛行の筋斗雲</a>
+    <a href="ssaiyans_ep27.html" class="episode-item"><span class="ep-red">Épisode 27</span> : Un retour très attendu - ぼくにまかせて！ 悟飯, 怒りの大爆発</a>
+    <a href="ssaiyans_ep28.html" class="episode-item"><span class="ep-red">Épisode 28</span> : Une double perte - サイヤ人の猛威！ 神様もピッコロも死んだ</a>
+    <a href="ssaiyans_ep29.html" class="episode-item"><span class="ep-red">Épisode 29</span> : L'insurpassable technique de Kaio - 父さんすげえや！ 究極の必殺技・界王拳</a>
+    <a href="ssaiyans_ep30.html" class="episode-item"><span class="ep-red">Épisode 30</span> : La troisième attaque - 限界を超えた熱い戦い！ 悟空対ベジータ</a>
+    <a href="ssaiyans_ep31.html" class="episode-item"><span class="ep-red">Épisode 31</span> : La métamorphose du dernier guerrier - いまだ悟空！ すべてを賭けた最後の大技</a>
+    <a href="ssaiyans_ep32.html" class="episode-item"><span class="ep-red">Épisode 32</span> : Au-delà de la dernière chance - 戦闘力10倍！！ ベジータ大変身</a>
+    <a href="ssaiyans_ep33.html" class="episode-item"><span class="ep-red">Épisode 33</span> : Le don de la force - 死なないで父さん！！ これが悟飯の底力</a>
+    <a href="ssaiyans_ep34.html" class="episode-item"><span class="ep-red">Épisode 34</span> : Une lourde responsabilité - 撃てクリリン！ 願いをこめた元気玉</a>
+    <a href="ssaiyans_ep35.html" class="episode-item"><span class="ep-red">Épisode 35</span> : Une étonnante transformation - 奇跡を起こせ！ スーパーサイヤ人孫悟空</a>
+    <a href="ssaiyans_ep36.html" class="episode-item"><span class="ep-red">Épisode 36</span> : Une nouvelle destination - 飛び出せ宇宙へ！ 希望の星はピッコロの故郷</a>
+    <a href="ssaiyans_ep37.html" class="episode-item"><span class="ep-red">Épisode 37</span> : Voyage au bout du monde - 謎のユンザビット！ 神様の宇宙船を探せ</a>
+    <a href="ssaiyans_ep38.html" class="episode-item"><span class="ep-red">Épisode 38</span> : Départ pour la planète Namek - ナメック星行き発進！ 悟飯たちを待つ恐怖</a>
+    <a href="ssaiyans_ep39.html" class="episode-item"><span class="ep-red">Épisode 39</span> : Prisonniers dans l'espace - 敵か味方か？ 謎の巨大宇宙船の子供たち</a>
+
+    <!-- Boutons de navigation -->
+    <div class="nav-buttons">
+      <a href="../../dbzseries.html" class="btn-nav">Retour</a>
+      <a href="../../accueil.html" class="btn-nav">Accueil</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
