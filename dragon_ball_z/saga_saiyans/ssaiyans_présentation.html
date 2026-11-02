@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Liberation+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Liberation+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
     body {
@@ -38,7 +38,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
       box-sizing: border-box;
     }
 
@@ -50,7 +50,7 @@
       letter-spacing: 2px;
       text-align: center;
       margin-top: 0;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       text-shadow: 3px 3px 0 #990000, 0 0 10px rgba(0, 0, 0, 0.5);
       border-bottom: 3px solid #ffcc00;
       padding-bottom: 10px;
@@ -62,7 +62,17 @@
       font-size: 1rem;
       line-height: 1.5;
       text-align: justify;
-      margin: 4px 0;
+      margin: 0;
+    }
+
+    /* Texte incitatif pour la boule de cristal */
+    p.shot-prompt {
+      text-align: center;
+      font-weight: bold;
+      color: #cc0000;
+      font-size: 1.05rem;
+      margin: 0 0 10px 0;
+      font-style: italic;
     }
 
     /* TABLEAU DES ÉPISODES */
@@ -116,7 +126,7 @@
     }
 
     .col-ep a, .col-ep span {
-      color: #ff9900; /* Orange Dragon Ball des boules de cristal */
+      color: #ff9900;
       font-weight: bold;
       text-decoration: none;
       display: block;
@@ -173,15 +183,68 @@
       transform: scale(1.15);
     }
 
-    /* Style de la ligne du GIF masquée par défaut (alignée à gauche sous le titre) */
+    /* Style de la ligne du GIF avec texte collé à côté */
     #gif-row {
       display: none;
       background-color: transparent;
     }
+
     #gif-row td {
       background-color: transparent;
+      padding: 10px 8px;
+      vertical-align: middle;
+    }
+
+    .cell-camera {
+      text-align: center;
+      width: 100px;
+    }
+
+    .cell-camera img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .cell-gif-text {
       text-align: left;
-      padding: 10px 8px 10px 10px;
+    }
+
+    .gif-text-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .gif-wrapper img {
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      display: block;
+    }
+
+    .text-wrapper {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #000000;
+    }
+
+    .text-wrapper .title-att {
+      font-style: italic;
+      font-weight: bold;
+      color: #1a2a6c;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .text-wrapper .text-exp {
+      font-weight: bold;
+      color: #000000;
     }
 
     /* Boutons de navigation bas de page */
@@ -222,6 +285,10 @@
       .episodes-table td { padding: 4px; font-size: 0.8rem; }
       .col-ball img { width: 18px; height: 18px; }
       .col-ep { width: 75px; }
+      .cell-camera { width: 75px; }
+      .cell-camera img { width: 32px; height: 32px; }
+      .gif-text-container { gap: 10px; }
+      .text-wrapper { font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -240,26 +307,37 @@
       le combat contre Nappa et Végéta, ainsi que les premiers événements du voyage vers la planète Namek.
     </p>
 
+    <p class="shot-prompt">(clique sur la boule de cristal pour un super shot !)</p>
+
     <!-- TABLEAU DES 39 ÉPISODES -->
     <table class="episodes-table">
       <!-- Épisode 1 -->
       <tr class="episode-row">
         <td class="col-ep"><span>Épisode 1</span></td>
-        <!-- Clic sur le titre ouvre ssaiyans_ep01.html et joue le son -->
         <td class="col-title"><a href="ssaiyans_ep01.html" onclick="playAudio(event)">Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です。</a></td>
         <td class="col-ball">
-          <!-- Clic sur la boule de cristal affiche/masque le GIF -->
           <a href="#" onclick="toggleGif(event)"><img src="../../bouleone.png" alt="Boule"></a>
         </td>
       </tr>
 
-      <!-- Ligne du GIF insérée entre l'Épisode 1 et l'Épisode 2 (alignée à gauche sous le titre) -->
+      <!-- Ligne du GIF : Texte placé directement à côté du GIF -->
       <tr id="gif-row">
-        <td></td>
-        <td>
-          <img src="gif/piccoboum_e01.gif" alt="Piccolo Boum" style="max-width: 250px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); display: block;">
+        <!-- Case 1 : Caméra -->
+        <td class="cell-camera">
+          <img src="../../video-camera.png" alt="Caméra vidéo">
         </td>
-        <td></td>
+        <!-- Case 2 & 3 fusionnées : GIF + Texte collé à sa droite -->
+        <td colspan="2" class="cell-gif-text">
+          <div class="gif-text-container">
+            <div class="gif-wrapper">
+              <img src="gif/piccoboum_e01.gif" alt="Piccolo Boum">
+            </div>
+            <div class="text-wrapper">
+              <span class="title-att">Attaque de Piccolo :</span>
+              <span class="text-exp">Vague explosive du démon !</span>
+            </div>
+          </div>
+        </td>
       </tr>
 
       <!-- Épisode 2 -->
@@ -508,13 +586,12 @@
       const audio = document.getElementById('click-audio');
       audio.currentTime = 0;
       
-      // Joue le son puis redirige vers la page de l'épisode après une courte pause (ou immédiatement si l'audio est instantané)
       audio.play().catch(error => {
         console.log("Lecture audio bloquée par le navigateur : ", error);
       }).finally(() => {
         setTimeout(() => {
           window.location.href = targetUrl;
-        }, 300); // 300ms pour laisser le temps de déclencher le son
+        }, 300);
       });
     }
 
