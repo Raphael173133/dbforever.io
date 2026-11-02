@@ -63,19 +63,19 @@
       margin: 4px 0;
     }
 
-    /* Style des épisodes (compact sans espacement) */
+    /* Style des lignes d'épisodes (aspect bouton au survol) */
     .episode-item {
       color: #000000;
       font-size: 1.05rem;
       line-height: 1.4;
       text-align: justify;
-      margin: 0;
+      margin: 2px 0;
       text-decoration: none;
       display: block;
-      padding: 2px 4px;
-      border-radius: 2px;
-      /* Animation fluide pour le mouvement et la couleur */
-      transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
     }
 
     .ep-red {
@@ -84,15 +84,17 @@
       transition: color 0.2s ease;
     }
 
-    /* EFFET AU SURVOL DU CURSEUR (HOVER) */
+    /* EFFET BOUTON VERT AU SURVOL */
     .episode-item:hover {
-      color: #009900;                /* Changement de couleur du texte en vert */
-      transform: translateX(6px);    /* Léger décalage vers la droite */
-      background-color: rgba(0, 153, 0, 0.08); /* Léger fond vert translucide */
+      background-color: #00aa00;        /* Fond vert vif type bouton */
+      color: #ffffff;                  /* Texte en blanc pour la lisibilité */
+      border-color: #008800;           /* Bordure légèrement plus sombre */
+      transform: translateX(6px);      /* Léger déplacement vers la droite */
+      box-shadow: 0 4px 10px rgba(0, 150, 0, 0.3); /* Ombre portée verte */
     }
 
     .episode-item:hover .ep-red {
-      color: #00cc00;                /* Le préfixe "Épisode X" passe aussi en vert plus vif */
+      color: #ffff00;                  /* Le texte "Épisode X" devient jaune vif pour contraster sur le fond vert */
     }
 
     /* Boutons de navigation bas de page */
@@ -129,6 +131,9 @@
 </head>
 <body>
 
+  <!-- Élément audio caché pour jouer ssaiyans.mp3 au survol -->
+  <audio id="hover-audio" src="ssaiyans.mp3" preload="auto"></audio>
+
   <div class="episode-container">
     
     <h1>SAGA DES SAIYANS</h1>
@@ -139,48 +144,46 @@
       le combat contre Nappa et Végéta, ainsi que les premiers événements du voyage vers la planète Namek.
     </p>
 
-    <!-- LIEN DE L'ÉPISODE 1 VERS ssaiyans_ep01.html -->
-    <a href="ssaiyans_ep01.html" class="episode-item"><span class="ep-red">Épisode 1</span> : Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です</a>
-
-    <!-- Reste des épisodes -->
-    <a href="ssaiyans_ep02.html" class="episode-item"><span class="ep-red">Épisode 2</span> : Le passé de Son Goku - 史上最強の戦士は悟空の兄だった！</a>
-    <a href="ssaiyans_ep03.html" class="episode-item"><span class="ep-red">Épisode 3</span> : Une équipe de choc - やった！ これが地上最強のコンビだ！</a>
-    <a href="ssaiyans_ep04.html" class="episode-item"><span class="ep-red">Épisode 4</span> : Quand les ennemis s'allient - ピッコロの切り札！ 悟飯は泣きむしクン</a>
-    <a href="ssaiyans_ep05.html" class="episode-item"><span class="ep-red">Épisode 5</span> : Son Goku sacrifie sa vie - 悟空死す！ ラストチャンスは一度だけ</a>
-    <a href="ssaiyans_ep06.html" class="episode-item"><span class="ep-red">Épisode 6</span> : Pour une victoire définitive - エンマ様もびっくり あの世でファイト</a>
-    <a href="ssaiyans_ep07.html" class="episode-item"><span class="ep-red">Épisode 7</span> : L'entraînement de Son Gohan - 恐竜サバイバル！ 悟飯のツライ修行</a>
-    <a href="ssaiyans_ep08.html" class="episode-item"><span class="ep-red">Épisode 8</span> : La métamorphose de Son Gohan - 月の輝く夜に大変身！ 悟飯パワーの秘密</a>
-    <a href="ssaiyans_ep09.html" class="episode-item"><span class="ep-red">Épisode 9</span> : Le robot - ゴメンねロボットさん 砂漠に消えた涙</a>
-    <a href="ssaiyans_ep10.html" class="episode-item"><span class="ep-red">Épisode 10</span> : Un compagnon pour Son Gohan - 泣くな悟飯！はじめての闘い。</a>
-    <a href="ssaiyans_ep11.html" class="episode-item"><span class="ep-red">Épisode 11</span> : Une courte escale - 宇宙一の強戦士・サイヤ人めざめる！</a>
-    <a href="ssaiyans_ep12.html" class="episode-item"><span class="ep-red">Épisode 12</span> : Un chemin sans fin - 蛇の道でいねむり 悟空が落っこる</a>
-    <a href="ssaiyans_ep13.html" class="episode-item"><span class="ep-red">Épisode 13</span> : Le passage secret - 手を出すな！エンマ様の秘密の果物</a>
-    <a href="ssaiyans_ep14.html" class="episode-item"><span class="ep-red">Épisode 14</span> : Hospitalité princière - あま～い誘惑！ 蛇姫さまのおもてなし</a>
-    <a href="ssaiyans_ep15.html" class="episode-item"><span class="ep-red">Épisode 15</span> : La tempête - ピッコロからの脱出！ 嵐を呼ぶ悟飯</a>
-    <a href="ssaiyans_ep16.html" class="episode-item"><span class="ep-red">Épisode 16</span> : Le village abandonné - 走れ悟飯！ チチの待つなつかしのパオズ山</a>
-    <a href="ssaiyans_ep17.html" class="episode-item"><span class="ep-red">Épisode 17</span> : La cité des guerriers - 明日なき街！ 勝利への遠い道のり</a>
-    <a href="ssaiyans_ep18.html" class="episode-item"><span class="ep-red">Épisode 18</span> : La fin du voyage - 終点～蛇の道！ おめえ界王様か？</a>
-    <a href="ssaiyans_ep19.html" class="episode-item"><span class="ep-red">Épisode 19</span> : La loi de la pesanteur - 重力との戦い！ バブルス君をつかまえろ</a>
-    <a href="ssaiyans_ep20.html" class="episode-item"><span class="ep-red">Épisode 20</span> : La légende des guerriers de l'espace - よみがえるサイヤ人伝説！ 悟空のルーツ</a>
-    <a href="ssaiyans_ep21.html" class="episode-item"><span class="ep-red">Épisode 21</span> : L'arrivée de l'ennemi - いでよ神龍！ サイヤ人ついに地球到着</a>
-    <a href="ssaiyans_ep22.html" class="episode-item"><span class="ep-red">Épisode 22</span> : Des graines très étranges - んなバカな！ 土から生まれたサイバイマン</a>
-    <a href="ssaiyans_ep23.html" class="episode-item"><span class="ep-red">Épisode 23</span> : Une tactique monstrueuse - ヤムチャ死す！ おそろべしサイバイマン</a>
-    <a href="ssaiyans_ep24.html" class="episode-item"><span class="ep-red">Épisode 24</span> : Un acte de courage - さよなら天さん！ 餃子の捨て身の戦法</a>
-    <a href="ssaiyans_ep25.html" class="episode-item"><span class="ep-red">Épisode 25</span> : La force du désespoir - 天津飯絶叫！！ これが最後の気功砲だ</a>
-    <a href="ssaiyans_ep26.html" class="episode-item"><span class="ep-red">Épisode 26</span> : La trêve - ひたすら待って3時間！ 弾丸飛行の筋斗雲</a>
-    <a href="ssaiyans_ep27.html" class="episode-item"><span class="ep-red">Épisode 27</span> : Un retour très attendu - ぼくにまかせて！ 悟飯, 怒りの大爆発</a>
-    <a href="ssaiyans_ep28.html" class="episode-item"><span class="ep-red">Épisode 28</span> : Une double perte - サイヤ人の猛威！ 神様もピッコロも死んだ</a>
-    <a href="ssaiyans_ep29.html" class="episode-item"><span class="ep-red">Épisode 29</span> : L'insurpassable technique de Kaio - 父さんすげえや！ 究極の必殺技・界王拳</a>
-    <a href="ssaiyans_ep30.html" class="episode-item"><span class="ep-red">Épisode 30</span> : La troisième attaque - 限界を超えた熱い戦い！ 悟空対ベジータ</a>
-    <a href="ssaiyans_ep31.html" class="episode-item"><span class="ep-red">Épisode 31</span> : La métamorphose du dernier guerrier - いまだ悟空！ すべてを賭けた最後の大技</a>
-    <a href="ssaiyans_ep32.html" class="episode-item"><span class="ep-red">Épisode 32</span> : Au-delà de la dernière chance - 戦闘力10倍！！ ベジータ大変身</a>
-    <a href="ssaiyans_ep33.html" class="episode-item"><span class="ep-red">Épisode 33</span> : Le don de la force - 死なないで父さん！！ これが悟飯の底力</a>
-    <a href="ssaiyans_ep34.html" class="episode-item"><span class="ep-red">Épisode 34</span> : Une lourde responsabilité - 撃てクリリン！ 願いをこめた元気玉</a>
-    <a href="ssaiyans_ep35.html" class="episode-item"><span class="ep-red">Épisode 35</span> : Une étonnante transformation - 奇跡を起こせ！ スーパーサイヤ人孫悟空</a>
-    <a href="ssaiyans_ep36.html" class="episode-item"><span class="ep-red">Épisode 36</span> : Une nouvelle destination - 飛び出せ宇宙へ！ 希望の星はピッコロの故郷</a>
-    <a href="ssaiyans_ep37.html" class="episode-item"><span class="ep-red">Épisode 37</span> : Voyage au bout du monde - 謎のユンザビット！ 神様の宇宙船を探せ</a>
-    <a href="ssaiyans_ep38.html" class="episode-item"><span class="ep-red">Épisode 38</span> : Départ pour la planète Namek - ナメック星行き発進！ 悟飯たちを待つ恐怖</a>
-    <a href="ssaiyans_ep39.html" class="episode-item"><span class="ep-red">Épisode 39</span> : Prisonniers dans l'espace - 敵か味方か？ 謎の巨大宇宙船の子供たち</a>
+    <!-- LIENS DES ÉPISODES AVEC DÉCLENCHEMENT AUDIO AU SURVOL -->
+    <a href="ssaiyans_ep01.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 1</span> : Un mystérieux guerrier - ミニ悟空はおぼっちゃま！ボク悟飯です</a>
+    <a href="ssaiyans_ep02.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 2</span> : Le passé de Son Goku - 史上最強の戦士は悟空の兄だった！</a>
+    <a href="ssaiyans_ep03.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 3</span> : Une équipe de choc - やった！ これが地上最強のコンビだ！</a>
+    <a href="ssaiyans_ep04.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 4</span> : Quand les ennemis s'allient - ピッコロの切り札！ 悟飯は泣きむしクン</a>
+    <a href="ssaiyans_ep05.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 5</span> : Son Goku sacrifie sa vie - 悟空死す！ ラストチャンスは一度だけ</a>
+    <a href="ssaiyans_ep06.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 6</span> : Pour une victoire définitive - エンマ様もびっくり あの世でファイト</a>
+    <a href="ssaiyans_ep07.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 7</span> : L'entraînement de Son Gohan - 恐竜サバイバル！ 悟飯のツライ修行</a>
+    <a href="ssaiyans_ep08.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 8</span> : La métamorphose de Son Gohan - 月の輝く夜に大変身！ 悟飯パワーの秘密</a>
+    <a href="ssaiyans_ep09.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 9</span> : Le robot - ゴメンねロボットさん 砂漠に消えた涙</a>
+    <a href="ssaiyans_ep10.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 10</span> : Un compagnon pour Son Gohan - 泣くな悟飯！はじめての闘い。</a>
+    <a href="ssaiyans_ep11.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 11</span> : Une courte escale - 宇宙一の強戦士・サイヤ人めざめる！</a>
+    <a href="ssaiyans_ep12.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 12</span> : Un chemin sans fin - 蛇の道でいねむり 悟空が落っこる</a>
+    <a href="ssaiyans_ep13.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 13</span> : Le passage secret - 手を出すな！エンマ様の秘密の果物</a>
+    <a href="ssaiyans_ep14.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 14</span> : Hospitalité princière - あま～い誘惑！ 蛇姫さまのおもてなし</a>
+    <a href="ssaiyans_ep15.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 15</span> : La tempête - ピッコロからの脱出！ 嵐を呼ぶ悟飯</a>
+    <a href="ssaiyans_ep16.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 16</span> : Le village abandonné - 走れ悟飯！ チチの待つなつかしのパオズ山</a>
+    <a href="ssaiyans_ep17.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 17</span> : La cité des guerriers - 明日なき街！ 勝利への遠い道のり</a>
+    <a href="ssaiyans_ep18.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 18</span> : La fin du voyage - 終点～蛇の道！ おめえ界王様か？</a>
+    <a href="ssaiyans_ep19.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 19</span> : La loi de la pesanteur - 重力との戦い！ バブルス君をつかまえろ</a>
+    <a href="ssaiyans_ep20.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 20</span> : La légende des guerriers de l'espace - よみがえるサイヤ人伝説！ 悟空のルーツ</a>
+    <a href="ssaiyans_ep21.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 21</span> : L'arrivée de l'ennemi - いでよ神龍！ サイヤ人ついに地球到着</a>
+    <a href="ssaiyans_ep22.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 22</span> : Des graines très étranges - んなバカな！ 土から生まれたサイバイマン</a>
+    <a href="ssaiyans_ep23.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 23</span> : Une tactique monstrueuse - ヤムチャ死す！ おそろべしサイバイマン</a>
+    <a href="ssaiyans_ep24.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 24</span> : Un acte de courage - さよなら天さん！ 餃子の捨て身の戦法</a>
+    <a href="ssaiyans_ep25.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 25</span> : La force du désespoir - 天津飯絶叫！！ これが最後の気功砲だ</a>
+    <a href="ssaiyans_ep26.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 26</span> : La trêve - ひたすら待って3時間！ 弾丸飛行の筋斗雲</a>
+    <a href="ssaiyans_ep27.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 27</span> : Un retour très attendu - ぼくにまかせて！ 悟飯, 怒りの大爆発</a>
+    <a href="ssaiyans_ep28.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 28</span> : Une double perte - サイヤ人の猛威！ 神様もピッコロも死んだ</a>
+    <a href="ssaiyans_ep29.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 29</span> : L'insurpassable technique de Kaio - 父さんすげえや！ 究極の必殺技・界王拳</a>
+    <a href="ssaiyans_ep30.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 30</span> : La troisième attaque - 限界を超えた熱い戦い！ 悟空対ベジータ</a>
+    <a href="ssaiyans_ep31.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 31</span> : La métamorphose du dernier guerrier - いまだ悟空！ すべてを賭けた最後の大技</a>
+    <a href="ssaiyans_ep32.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 32</span> : Au-delà de la dernière chance - 戦闘力10倍！！ ベジータ大変身</a>
+    <a href="ssaiyans_ep33.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 33</span> : Le don de la force - 死なないで父さん！！ これが悟飯の底力</a>
+    <a href="ssaiyans_ep34.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 34</span> : Une lourde responsabilité - 撃てクリリン！ 願いをこめた元気玉</a>
+    <a href="ssaiyans_ep35.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 35</span> : Une étonnante transformation - 奇跡を起こせ！ スーパーサイヤ人孫悟空</a>
+    <a href="ssaiyans_ep36.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 36</span> : Une nouvelle destination - 飛び出せ宇宙へ！ 希望の星はピッコロの故郷</a>
+    <a href="ssaiyans_ep37.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 37</span> : Voyage au bout du monde - 謎のユンザビット！ 神様の宇宙船を探せ</a>
+    <a href="ssaiyans_ep38.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 38</span> : Départ pour la planète Namek - ナメック星行き発進！ 悟飯たちを待つ恐怖</a>
+    <a href="ssaiyans_ep39.html" class="episode-item" onmouseover="playAudio()"><span class="ep-red">Épisode 39</span> : Prisonniers dans l'espace - 敵か味方か？ 謎の巨大宇宙船の子供たち</a>
 
     <!-- Boutons de navigation -->
     <div class="nav-buttons">
@@ -189,6 +192,18 @@
     </div>
 
   </div>
+
+  <!-- Script JavaScript pour déclencher le son au survol -->
+  <script>
+    function playAudio() {
+      const audio = document.getElementById('hover-audio');
+      audio.currentTime = 0; // Remet l'audio au début si on survole rapidement plusieurs lignes
+      audio.play().catch(error => {
+        // Gère la restriction des navigateurs si l'utilisateur n'a pas encore cliqué sur la page
+        console.log("Lecture audio bloquée par le navigateur : ", error);
+      });
+    }
+  </script>
 
 </body>
 </html>
