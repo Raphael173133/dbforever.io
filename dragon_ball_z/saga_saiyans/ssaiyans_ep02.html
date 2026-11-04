@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saga des Saiyans - Épisode 2</title>
+  <!-- Import de la police style manga (Bangers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      /* Police générale définie sur Liberation Serif */
+      font-family: 'Liberation Serif', serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .episode-container {
+      width: 100%;
+      max-width: 800px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Style Manga conservé uniquement pour le titre tout en haut */
+    h1 {
+      color: #ffcc00;
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px 0 #990000, 0 0 10px rgba(0, 0, 0, 0.5);
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 10px;
+    }
+
+    /* Sous-titres en noir avec texte justifié */
+    h2 {
+      color: #000000;
+      font-size: 1.4rem;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-family: 'Liberation Serif', serif;
+    }
+
+    /* Classe pour colorer "Épisode 2" en rouge */
+    .ep-red {
+      color: #cc0000;
+    }
+
+    /* Paragraphes justifiés et espacement réduit */
+    p {
+      color: #000000;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 6px 0;
+    }
+
+    .image-block {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .image-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Police DejaVu Sans pour les légendes sous les images */
+    .image-caption {
+      font-family: 'DejaVu Sans', sans-serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #000000;
+      margin-top: 8px;
+    }
+
+    .remark-section {
+      background-color: #f9f9f9;
+      border-left: 4px solid #333333;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Style pour le lien "Liste des épisodes" avec le gant */
+    .back-to-list {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .back-to-list img {
+      width: 70px;
+      height: auto;
+    }
+
+    .back-to-list span {
+      font-family: 'Liberation Serif', serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-list:hover span {
+      color: #cc0000;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="episode-container">
+    
+    <!-- Titre principal en style Manga -->
+    <h1>SAGA DES SAIYANS</h1>
+
+    <!-- Épisode 2 avec "Épisode 2" en rouge -->
+    <h2><span class="ep-red">Épisode 2</span> : Le passé de Sangoku - 恐るべきサイヤ人の到来</h2>
+    <p>
+      Alors que Son Goku présente son fils à Tortue Géniale (Kamé Sennin), Bulma et Krilin sur l’île de Kamé House, un mystérieux guerrier venu de l’espace, Raditz, retrouve enfin celui qu’il cherchait.
+    </p>
+    <p>
+      Il lui révèle qu’il est son frère, que tous deux appartiennent à la race des Saiyans, un peuple de guerriers originaire de la planète Végéta, et que Goku, de son vrai nom Kakarot, avait été envoyé sur Terre encore bébé avec pour mission de la détruire. Mais, recueilli par Son Gohan, son grand-père adoptif, Goku a perdu ses instincts destructeurs après une chute dans un ravin et est devenu inoffensif.
+    </p>
+    <p>
+      Raditz, qui est venu le chercher pour qu’il l’aide à conquérir une autre planète, met facilement Krilin hors d’état de nuire, puis neutralise Goku et enlève son fils Gohan afin de le contraindre à obéir.
+    </p>
+
+    <!-- Image de l'épisode 2 au format .png et sa légende en DejaVu Sans -->
+    <div class="image-block">
+      <img src="ssaiyans_s01e2.png" alt="Raditz et Son Goku">
+      <div class="image-caption">(ci-dessus Raditz et Son Goku)</div>
+    </div>
+
+    <!-- Lien bas de page : Gant (gant.png) + LISTE DES EPISODES vers ssaiyans_présentation.html -->
+    <a href="ssaiyans_présentation.html" class="back-to-list">
+      <img src="gant.png" alt="Main gantée pointant vers la liste">
+      <span>LISTE DES ÉPISODES</span>
+    </a>
+
+  </div>
+
+</body>
+</html>
