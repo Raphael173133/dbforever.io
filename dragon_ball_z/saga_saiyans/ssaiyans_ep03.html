@@ -130,6 +130,58 @@
       color: #cc0000;
       text-decoration: underline;
     }
+    /* Disposition des 3 cartes de navigation sur une même ligne horizontale */
+    .navigation-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    /* Adaptation mobile pour garder une bonne lisibilité */
+    @media (max-width: 650px) {
+      .navigation-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Style de chaque carte encadrée avec le gant */
+    .nav-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 10px;
+      background-color: #ffffff;
+      border: 1px solid #e0e4e8;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-card img {
+      width: 35px;
+      height: auto;
+      mix-blend-mode: multiply;
+      flex-shrink: 0;
+    }
+
+    .nav-card span {
+      font-family: 'Liberation Serif', serif;
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-card:hover {
+      border-color: #bbbbbb;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-card:hover span {
+      color: #cc0000;
+    }
   </style>
 </head>
 <body>
@@ -154,13 +206,28 @@
       <div class="image-caption">(ci-dessus Son Gohan enfermé dans la capsule spatiale de Raditz)</div>
     </div>
 
-    <!-- Lien bas de page : Gant (gant.png) + LISTE DES EPISODES vers ssaiyans_présentation.html -->
-    <a href="ssaiyans_présentation.html" class="back-to-list">
-      <img src="gant.png" alt="Main gantée pointant vers la liste">
-      <span>LISTE DES ÉPISODES</span>
-    </a>
+    <!-- Navigation horizontale sous forme de 3 cartes encadrées -->
+    <div class="navigation-links">
+      <!-- 1. Épisode Précédent -->
+      <a href="ssaiyans_ep02.html" class="nav-card">
+        <img src="gant.png" alt="Main gantée">
+        <span>ÉPISODE PRÉCÉDENT</span>
+      </a>
 
-  </div>
+      <!-- 2. Épisode Suivant -->
+      <a href="ssaiyans_ep04.html" class="nav-card">
+        <img src="gant.png" alt="Main gantée">
+        <span>ÉPISODE SUIVANT</span>
+      </a>
+
+      <!-- 3. Liste des épisodes -->
+      <a href="ssaiyans_présentation.html" class="nav-card">
+        <img src="gant.png" alt="Main gantée">
+        <span>LISTE DES ÉPISODES</span>
+      </a>
+    </div>
+
+
 
 </body>
 </html>
